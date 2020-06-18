@@ -1,0 +1,345 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Vivaro Dealer | Online Courses</title>
+    <link rel="icon" href="{% static 'img/favicon.png'%}" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" />
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{%static 'css/animate.css'%}" />
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{%static 'css/owl.carousel.min.css'%}" />
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{%static 'css/themify-icons.css'%}" />
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{%static 'css/flaticon.css'%}" />
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{%static 'css/magnific-popup.css'%}" />
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="{%static 'css/slick.css'%}" />
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+  </head>
+
+  <body>
+    <!--::header part start::-->
+    <header class="main_menu home_menu">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <a class="navbar-brand" href="{% url 'homepage'%}">
+                <img src="{% static 'img/logo.png' %}" alt="vivarodelarlogo" />
+              </a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div
+                class="collapse navbar-collapse main-menu-item justify-content-end"
+                id="navbarSupportedContent"
+              >
+                <ul class="navbar-nav align-items-center">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'homepage'%}">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="{% url 'homepage'%}"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Courses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'Courses:Blackjack'%}"
+                        >Black Jack</a
+                      >
+                      <a class="dropdown-item" href="{% url 'Courses:Poker'%}"
+                        >Poker</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'Courses:Roulatte'%}"
+                        >Roulette</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'Courses:Dragontiger'%}"
+                        >Dragon Tiger</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'Courses:Baccarat'%}"
+                        >Baccarat</a
+                      >
+                      <a class="dropdown-item" href="{% url 'Courses:Keno'%}"
+                        >Keno</a
+                      >
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{%url 'about'%}">About</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog'%}">Blog</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact'%}">Contact</a>
+                  </li>
+                  <li class="d-none d-lg-block">
+                    <a
+                      class="genric-btn primary-border small"
+                      href="{% url 'accounts:login'%}"
+                      >Log In</a
+                    >
+                  </li>
+                  <li class="d-none d-lg-block">
+                    <a
+                      class="genric-btn primary small"
+                      href="{% url 'accounts:signup'%}"
+                      >Sign Up</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header part end-->
+
+    <!--Block content-->
+
+    {%block content%} {%endblock%}
+
+    <!--End Block content-->
+
+    <!--::blog_part start::-->
+    <section class="blog_part section_padding">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-5">
+            <div class="section_tittle text-center">
+              <p>Our Blog</p>
+              <h2>Dealers Blog</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-lg-4 col-xl-4">
+            <div class="single-home-blog">
+              <div class="card">
+                <img
+                  src="{% static 'img/blog/blog_1.png'%}"
+                  class="card-img-top"
+                  alt="blog"
+                />
+                <div class="card-body">
+                  <a href="#" class="btn_4">Black Jack</a>
+                  <a href="blog.html">
+                    <h5 class="card-title">Dry beginning sea over tree</h5>
+                  </a>
+                  <p>
+                    Which whose darkness saying were life unto fish wherein all
+                    fish of together called
+                  </p>
+                  <ul>
+                    <li><span class="ti-comments"></span>2 Comments</li>
+                    <li><span class="ti-heart"></span>2k Like</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 col-xl-4">
+            <div class="single-home-blog">
+              <div class="card">
+                <img
+                  src="{%static 'img/blog/blog_2.png'%}"
+                  class="card-img-top"
+                  alt="blog"
+                />
+                <div class="card-body">
+                  <a href="#" class="btn_4">Roulette</a>
+                  <a href="blog.html">
+                    <h5 class="card-title">All beginning air two likeness</h5>
+                  </a>
+                  <p>
+                    Which whose darkness saying were life unto fish wherein all
+                    fish of together called
+                  </p>
+                  <ul>
+                    <li><span class="ti-comments"></span>2 Comments</li>
+                    <li><span class="ti-heart"></span>2k Like</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 col-xl-4">
+            <div class="single-home-blog">
+              <div class="card">
+                <img
+                  src="{%static 'img/blog/blog_3.png' %}"
+                  class="card-img-top"
+                  alt="blog"
+                />
+                <div class="card-body">
+                  <a href="#" class="btn_4">Poker</a>
+                  <a href="blog.html">
+                    <h5 class="card-title">Form day seasons sea hand</h5>
+                  </a>
+                  <p>
+                    Which whose darkness saying were life unto fish wherein all
+                    fish of together called
+                  </p>
+                  <ul>
+                    <li><span class="ti-comments"></span>2 Comments</li>
+                    <li><span class="ti-heart"></span>2k Like</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--::blog_part end::-->
+
+    <!-- footer part start-->
+    <footer class="footer-area">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="single-footer-widget footer_1">
+              <a href="{% url 'homepage' %}">
+                <img src="{% static 'img/logo.png' %}" alt="vivarodealerlogo" />
+              </a>
+              <p>
+                But when shot real her. Chamber her one visite removal six
+                sending himself boys scot exquisite existend an
+              </p>
+              <p>But when shot real her hamber her</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-xl-4">
+            <div class="single-footer-widget footer_2">
+              <h4>Newsletter</h4>
+              <p>
+                Stay updated with our latest trends Seed heaven so said place
+                winged over given forth fruit.
+              </p>
+              <form action="#">
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter email address"
+                      onfocus="this.placeholder = ''"
+                      onblur="this.placeholder = 'Enter email address'"
+                    />
+                    <div class="input-group-append">
+                      <button class="btn btn_1" type="button">
+                        <i class="ti-angle-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="social_icon">
+                <a href="#"> <i class="ti-facebook"></i> </a>
+                <a href="#"> <i class="ti-twitter-alt"></i> </a>
+                <a href="#"> <i class="ti-instagram"></i> </a>
+                <a href="#"> <i class="ti-skype"></i> </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 col-md-4">
+            <div class="single-footer-widget footer_2">
+              <h4>Contact us</h4>
+              <div class="contact_info">
+                <p><span> Address :</span> Nork Marash , Yerevan , Armenia</p>
+                <p><span> Phone :</span> +374 94 77 87</p>
+                <p><span> Email : </span>info@vivarodealer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="copyright_part_text text-center">
+              <div class="row">
+                <div class="col-lg-12">
+                  <p class="footer-text m-0">
+                    Copyright &copy;
+                    <script>
+                      document.write(new Date().getFullYear());
+                    </script>
+                    All rights reserved |
+                    <i class="ti-heart" aria-hidden="true"></i> by
+                    <a href="https://vivarodealer.am" target="_blank"
+                      >Vivaro Dealer</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer part end-->
+
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="{% static 'js/jquery-1.12.1.min.js'%}"></script>
+    <!-- popper js -->
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <!-- easing js -->
+    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{%static 'js/masonry.pkgd.js'%}"></script>
+    <!-- particles js -->
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'js/slick.min.js'%}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js'"></script>
+    <script src="{% static 'js/waypoints.min.js'%}"></script>
+    <!-- custom js -->
+    <script src="{% static 'js/custom.js'%}"></script>
+  </body>
+</html>
