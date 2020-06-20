@@ -6,6 +6,6 @@ from . import views
 
 app_name = 'Games'
 urlpatterns = [
-    url(r'^bj/$', views.blackjack_game, name='blackjackgame'),
+    url(r'^g/$', views.blackjack_game, name='blackjackgame'),
     
 ]

@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^courses/', include('Courses.urls')),
     url(r'^accounts/', include('Accounts.urls')),
     url(r'^games/', include('Games.urls')),
-]
+]   
 
 handler404 = views.error404
 urlpatterns += staticfiles_urlpatterns()

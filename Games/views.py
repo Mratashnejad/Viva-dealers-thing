@@ -3,5 +3,4 @@ from django.shortcuts import render
 
 
 def blackjack_game(request):
-    return render(request, 'bj.html')
-    
+    return render(request, 'BLJC.html')

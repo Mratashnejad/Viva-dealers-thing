@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'Games/css/main.css'%}">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="game">
+            <h3>Blackjack</h3>
+    
+            <div class="game-body">
+                <div class="game-options">
+                    <input type="button" id="btnStart" class="btn" value="start" onclick="startblackjack()">
+                    <input type="button" class="btn" value="hit me" onclick="hitMe()">
+                    <input type="button" class="btn" value="stay" onclick="stay()">
+                    </div>
+            
+                        <div class="status" id="status"></div>
+            
+                    <div id="deck" class="deck">
+                        <div id="deckcount">52</div>
+                    </div>
+            
+                    <div id="players" class="players">
+                    </div>
+            
+                    <div class="clear"></div>
+            </div>
+        </div>
+        <script src="{% static 'Games/js/main.js'%}" async defer></script>
+    </body>
+</html>
