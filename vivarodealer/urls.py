@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^blog/$', views.blog_page, name='blog'),
     url(r'^courses/', include('Courses.urls')),
     url(r'^accounts/', include('Accounts.urls')),
+    url(r'^games/', include('Games.urls')),
 ]
 
 handler404 = views.error404

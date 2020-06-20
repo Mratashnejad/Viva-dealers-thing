@@ -1,0 +1,16 @@
+{%Load static%}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'Games/css/cards.css'%}">
+        <script type="text/javascript" src="{% static 'Games/js/cards.js'%}"></script>
+    </head>
+    
+    <body>
+        <div class="deck">
+            <h1>A Deck of Cards</h1>
+    
+            <a href="javascript:void(0)" class="btn" onclick="shuffle()">Shuffle</a>
+            <div id="deck"></div>
+        </div>
+    </body>
+    </html>
