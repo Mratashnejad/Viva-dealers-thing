@@ -1,13 +1,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>register</title>
   </head>
   <body>
-    <form method="POST" class="form-group">
-      {% csrf_token %} {{form}}
-      <button class="submit">submit</button>
+    <form method="POST">
+      {% load crispy_forms_tags %} {% csrf_token %} {{ form|crispy }}
+      <button type="submit" class="btn btn-primary">Sign in</button>
     </form>
   </body>
 </html>
