@@ -7,10 +7,10 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
 
 STATES = (
-    ('', 'Choose...'),
-    ('MG', 'Minas Gerais'),
-    ('SP', 'Sao Paulo'),
-    ('RJ', 'Rio de Janeiro')
+    ('', 'Armenia'),
+    ('Ir', 'Iran'),
+    ('Ru', 'Russia'),
+    ('En', 'England')
 )
 
 

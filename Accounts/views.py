@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterForm
-# from django.contrib.auth.forms import UserCreationForm
+from . import urls
 
 
 def Login_page(request):
@@ -16,7 +16,7 @@ def Signup_page(response):
         form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
-        return redirect('/home')
+        return redirect("/homepage")
     else:
         form = RegisterForm()
     return render(response, 'Signup_page.html', {'form': form})
