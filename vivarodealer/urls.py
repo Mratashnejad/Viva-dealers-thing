@@ -4,6 +4,8 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.home_page, name='homepage'),
@@ -13,6 +15,7 @@ urlpatterns = [
     url(r'^blog/$', views.blog_page, name='blog'),
     url(r'^courses/', include('Courses.urls')),
     url(r'^accounts/', include('Accounts.urls')),
+    
     url(r'^games/', include('Games.urls')),
 ]
 
