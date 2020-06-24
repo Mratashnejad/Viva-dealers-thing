@@ -11,12 +11,13 @@ def Login_page(request):
     return render(request, 'Login_page.html')
 
 
-def Signup_page(response):
-    if response.method == "POST":
-        form = RegisterForm(response.POST)
+def Signup_page(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect("/homepage")
+            return redirect('homepage')
     else:
-        form = RegisterForm()
-    return render(response, 'Signup_page.html', {'form': form})
+        form = UserCreationForm()
+
+    return render(request, 'Signup_page.html', {'form': form})
