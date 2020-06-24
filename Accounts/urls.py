@@ -7,5 +7,6 @@ app_name = 'accounts'
 urlpatterns = [
     url(r'^signup/$', views.Signup_page, name='signup'),
     url(r'^login/$', views.Login_page, name='login'),
+    url(r'^logout/$', views.Logout_page, name='logout'),
 
 ]

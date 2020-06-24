@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login , logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import RegisterForm
 from . import urls
@@ -30,3 +30,9 @@ def Login_page(request):
     else:
         form = AuthenticationForm()
     return render(request, 'Login_page.html', {'form': form})
+
+
+def Logout_page(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('homepage')

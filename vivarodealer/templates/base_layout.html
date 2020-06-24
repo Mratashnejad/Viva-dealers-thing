@@ -135,6 +135,18 @@
                       >Sign Up</a
                     >
                   </li>
+                  <!-- btn logout change style -->
+                  <li class="d-none d-lg-block">
+                    <form action="{% url 'accounts:logout'%}" method="POST">
+                      {% csrf_token %}<button
+                        type="submit"
+                        class="genric-btn primary small"
+                      >
+                        Log Out
+                      </button>
+                    </form>
+                  </li>
+
                   <!-- <li class="nav-item dropdown"> Language menu drop down img
                     <img
                       src="{%static 'img/flags/england.png'%}"
