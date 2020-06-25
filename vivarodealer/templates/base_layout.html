@@ -121,6 +121,72 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact'%}">Contact</a>
                   </li>
+
+                  <!-- if user is login change button -->
+                  {% if user.is_authenticated %}
+                  <!--  -->
+
+                  <!-- logout -->
+                  <li class="d-none d-lg-block">
+                    <!--some thing -->
+                    <button
+                      class="navbar-toggler"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#navbar-list-4"
+                      aria-controls="navbarNav"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation"
+                    >
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar-list-4">
+                      <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                          <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            <img
+                              src="{% static 'img/avatar/user-1.jpg'%}"
+                              width="40"
+                              height="40"
+                              class="rounded-circle"
+                            />
+                          </a>
+                          <div
+                            class="dropdown-menu"
+                            aria-labelledby="navbarDropdownMenuLink"
+                          >
+                            <a class="dropdown-item" href="#"
+                              >Dealer : {{ user }}</a
+                            >
+                            <!-- <a class="dropdown-item" href="#">Edit Profile</a> -->
+
+                            <form
+                              class="form-item"
+                              action="{% url 'accounts:logout'%}"
+                              method="POST"
+                            >
+                              {% csrf_token %}<button
+                                class="dropdown-item"
+                                type="submit"
+                              >
+                                Log out
+                              </button>
+                            </form>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  {% else %}
+                  <!--login-->
                   <li class="d-none d-lg-block">
                     <a
                       class="genric-btn primary-border small"
@@ -128,25 +194,16 @@
                       >Log In</a
                     >
                   </li>
+                  <!--sing in-->
                   <li class="d-none d-lg-block">
                     <a
                       class="genric-btn primary small"
                       href="{% url 'accounts:signup'%}"
                       >Sign Up</a
                     >
+                    <!-- btn logout change style -->
                   </li>
-                  <!-- btn logout change style -->
-                  <li class="d-none d-lg-block">
-                    <form action="{% url 'accounts:logout'%}" method="POST">
-                      {% csrf_token %}<button
-                        type="submit"
-                        class="genric-btn primary small"
-                      >
-                        Log Out
-                      </button>
-                    </form>
-                  </li>
-
+                  {% endif %}
                   <!-- <li class="nav-item dropdown"> Language menu drop down img
                     <img
                       src="{%static 'img/flags/england.png'%}"

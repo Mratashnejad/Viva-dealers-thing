@@ -7378,4 +7378,11 @@ h6 {
   margin-top: 0px;
 }
 
+.avatar {
+  vertical-align: middle;
+  width: 38px;
+  height: 38px;
+  padding-top: 0px;
+}
+
 /*# sourceMappingURL=style.css.map */
