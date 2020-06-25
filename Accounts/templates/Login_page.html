@@ -6,7 +6,14 @@
   </head>
   <body>
     <form class="site-form" action="{% url 'accounts:login'%}" method="post">
-      {% csrf_token %} {{form}}
+      
+      {% csrf_token %} {{form}} 
+      
+      <!-- redirect to the page request after login -->
+      
+      {% if request.GET.next %}
+      <input type="hidden" name="next" value="{{request.GET.next}}" />
+      {% endif %}
       <input type="submit" value="Login" />
     </form>
   </body>
