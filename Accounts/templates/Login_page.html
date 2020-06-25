@@ -5,8 +5,8 @@
     <title>Login</title>
   </head>
   <body>
-    <form class="site-form" action="{% url 'accounts:login'%}" method="post">
-      {% csrf_token %} {{form|crispy}}
+    <form class="bootstrap4" action="{% url 'accounts:login'%}" method="post">
+      {% csrf_token %} {{form.as_p}}
 
       <!-- redirect to the page request after login -->
 

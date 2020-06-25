@@ -6,8 +6,13 @@
   </head>
   <body>
     <form class="site-form" action="/accounts/signup/" method="post">
-      {% csrf_token %} {{form}}
-      
+      {% csrf_token %} {{form}} {%for form in registrationform%}
+      <div class="input-group">
+        <form role="form" class="form-django" id="{{field.username}}">
+          username
+        </form>
+        {%endfor%}
+      </div>
       <input type="submit" value="Signup" />
     </form>
   </body>
