@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 def Courses_page(request):
     return render(request, 'index.html')
 
-# login required to access the courses data using @decoreators 
+# login required to access the courses data using @decoreators
 
 
 @login_required(login_url="/accounts/login/")
