@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_mongoengine',
+    'ecommerce',
+
     'crispy_forms',
     'Courses',
     'Accounts',
@@ -69,15 +70,11 @@ WSGI_APPLICATION = 'vivarodealer.wsgi.application'
 
 
 # Database
-MONGODB_DATABASES = {
-    "default": {
-        'ENGINE': 'django.db.backends.dummy',
-        "name": 'db.db_vivarodealer',
-        "host": 'localhost',
-        "password": '',
-        "username": '',
-        "tz_aware": True,  # if you using timezones in django (USE_TZ = True)
-    },
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
+    }
 }
 
 
