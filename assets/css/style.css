@@ -88,7 +88,7 @@ input:focus {
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 33, E:/172 Etrain Education/172_Etrain_Education_html/sass/_common.scss */
   .single_padding_top {
-    padding-top: 70px !important;
+    padding-top: 20px !important;
   }
 }
 
@@ -115,7 +115,7 @@ input:focus {
 
 /* line 48, E:/172 Etrain Education/172_Etrain_Education_html/sass/_common.scss */
 .padding_top {
-  padding-top: 140px;
+  padding-top: 1px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -3784,7 +3784,7 @@ ul {
 /**************** service_part css start ****************/
 /* line 2, E:/172 Etrain Education/172_Etrain_Education_html/sass/_member_counter.scss */
 .member_counter {
-  padding: 73px 0px 73px;
+  padding: 20px 0px 20px;
 }
 
 @media (max-width: 576px) {
