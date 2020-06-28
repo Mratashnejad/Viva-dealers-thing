@@ -9,11 +9,21 @@ class UserManager(BaseUserManager):
         if not password:
             raise ValueError("User Must have a Password")
         user_obj = self.model(email=self.normalize(email))
-        user_obj.set_password(password)
+        user_obj.set_password(password)  # change user password
         user_obj.staff = is_staff
         user_obj.active = is_active
         user_obj.admin = is_admin
+        user_obj.save(using=self._db)
+        return user_obj
 
+        #staff user 
+    def create_staffuser(self, email, password=None):
+        user = self.create_user(
+            email,
+            password=password,
+            is_staff=True,
+
+        )
 
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
