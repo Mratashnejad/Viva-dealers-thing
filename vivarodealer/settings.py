@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'Games',
 ]
 
+AUTH_USER_MODEL = 'Accounts.User'  # change the built-in user models to ours
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
