@@ -1,61 +1,77 @@
-
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from django.contrib.auth.models import User
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Row, Column
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-STATES = (
-    ('', 'Armenia'),
-    ('Ir', 'Iran'),
-    ('Ru', 'Russia'),
-    ('En', 'England')
-)
+from .models import User
 
 
-class RegisterForm(UserCreationForm):
+class RegisterForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label='Confirm password', widget=forms.PasswordInput)
 
-    email = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Email'}))
-    password = forms.CharField(widget=forms.PasswordInput())
-    address_1 = forms.CharField(
-        label='Address',
-        widget=forms.TextInput(attrs={'placeholder': '1234 Main St'})
-    )
-    address_2 = forms.CharField(
-        widget=forms.TextInput(
-            attrs={'placeholder': 'Apartment, studio, or floor'})
-    )
-    city = forms.CharField()
-    state = forms.ChoiceField(choices=STATES)
-    zip_code = forms.CharField(label='Zip')
-    check_me_out = forms.BooleanField(required=False)
+    class Meta:
+        model = User
+        fields = ('email',)
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        qs = User.objects.filter(email=email)
+        if qs.exists():
+            raise forms.ValidationError("email is taken")
+        return email
 
-def __init__(self, *args, **kwargs):
-    super().__init__(*args, **kwargs)
-    self.helper = FormHelper()
-    self.helper.layout = Layout(
-        Row(
-            Column('email', css_class='form-group col-md-6 mb-0'),
-            Column('password', css_class='form-group col-md-6 mb-0'),
-            css_class='form-row'
-        ),
-        'address_1',
-        'address_2',
-        Row(
-            Column('city', css_class='form-group col-md-6 mb-0'),
-            Column('state', css_class='form-group col-md-4 mb-0'),
-            Column('zip_code', css_class='form-group col-md-2 mb-0'),
-            css_class='form-row'
-        ),
-        'check_me_out',
-        Submit('submit', 'Sign in')
-    )
+    def clean_password2(self):
+        # Check that the two password entries match
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Passwords don't match")
+        return password2
 
 
-class Meta:
-    model = User
-    fields = ["username", "email",
-              "password1", "password2"]
+class UserAdminCreationForm(forms.ModelForm):
+    """
+    A form for creating new users. Includes all the required
+    fields, plus a repeated password.
+    """
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label='Password confirmation', widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ('email',)
+
+    def clean_password2(self):
+        # Check that the two password entries match
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Passwords don't match")
+        return password2
+
+    def save(self, commit=True):
+        # Save the provided password in hashed format
+        user = super(UserAdminCreationForm, self).save(commit=False)
+        user.set_password(self.cleaned_data["password1"])
+        if commit:
+            user.save()
+        return user
+
+
+class UserAdminChangeForm(forms.ModelForm):
+    """A form for updating users. Includes all the fields on
+    the user, but replaces the password field with admin's
+    password hash display field.
+    """
+    password = ReadOnlyPasswordHashField()
+
+    class Meta:
+        model = User
+        fields = ('email', 'password', 'active', 'admin')
+
+    def clean_password(self):
+        # Regardless of what the user provides, return the initial value.
+        # This is done here, rather than on the field, because the
+        # field does not have access to the initial value
+        return self.initial["password"]
