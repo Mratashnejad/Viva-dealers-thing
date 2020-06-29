@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'Accounts',
     'Exam',
     'Games',
+    'phonenumber_field',
 ]
 
 AUTH_USER_MODEL = 'Accounts.User'  # change the built-in user models to ours
