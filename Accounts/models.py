@@ -4,13 +4,16 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password=None, is_active=True, is_staff=False, is_admin=False):
+    def create_user(self, phone_number, email, password=None, is_active=True, is_staff=False, is_admin=False):
         if not email:
             raise ValueError("User Must have an Email Address")
         if not password:
             raise ValueError("User Must have a Password")
+        if not phone_number:
+            raise ValueError("User Must have a Phone Number")
         user_obj = self.model(email=self.normalize_email(email))
         user_obj.set_password(password)  # change user password
+        user_obj.phone_number(phonenumber_field)
         user_obj.staff = is_staff
         user_obj.active = is_active
         user_obj.admin = is_admin
@@ -22,6 +25,7 @@ class UserManager(BaseUserManager):
         user = self.create_user(
             email,
             password=password,
+            phone_number=PhoneNumberField,
             is_staff=True
         )
         return user
@@ -31,6 +35,7 @@ class UserManager(BaseUserManager):
         user = self.create_user(
             email,
             password=password,
+            phone_number=PhoneNumberField,
             is_staff=True,
             is_admin=True
         )
@@ -44,6 +49,7 @@ class User(AbstractBaseUser):
     staff = models.BooleanField(default=False)  # staff user non super user
     admin = models.BooleanField(default=False)  # super user
     timestamp = models.DateTimeField(auto_now_add=True)
+    phone_number = PhoneNumberField()
 
     USERNAME_FIELD = 'email'  # username
     REQUIRED_FIELDS = []  # FULL_NAME
@@ -79,4 +85,3 @@ class User(AbstractBaseUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = PhoneNumberField(null =False , blank= False ,uniqe = True)
