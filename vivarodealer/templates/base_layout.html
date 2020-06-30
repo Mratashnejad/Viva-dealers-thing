@@ -169,9 +169,24 @@
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                           >
-                            <a class="dropdown-item" href="#"
-                              >Dealer : {{ user }}</a
+                            <br class="dropdown-item" href="#"
+                              >Dealer : {{ user.lastname }}</a
                             >
+                          </div>
+                          <div
+                            class="dropdown-menu"
+                            aria-labelledby="navbarDropdownMenuLink"
+                          >
+                            <a class="dropdown-item" href="#"
+                              >Dealer : {{ user.lastname }}</a
+                            >
+                            <a class="dropdown-item" href="#"
+                              >color : {{ user.fav_color }}</a
+                            >
+                            <a class="dropdown-item" href="#"
+                              >email : {{ user.email}}</a
+                            >
+                          
                             <!-- <a class="dropdown-item" href="#">Edit Profile</a> -->
 
                             <form
