@@ -7,17 +7,19 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, phone_number, password=None, is_active=True, is_staff=False, is_admin=False):
+    def create_user(self, email, phone_number, lastname, password=None, is_active=True, is_staff=False, is_admin=False):
         """
         Creates and saves a User with the given email and password.
         """
         if not email:
             raise ValueError('Users must have an email address')
+        # if not phone_number:
+        #     raise ValueError('user must have phone number')
 
         user = self.model(
             email=self.normalize_email(email),
         )
-
+        user.lastname = lastname
         user.phone_number = phone_number
         user.set_password(password)
         user.save(using=self._db)
@@ -55,13 +57,16 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
+    lastname = models.CharField(max_length=100)
+    phone_number = phone_number
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)  # a admin user; non super-user
     admin = models.BooleanField(default=False)  # a superuser
     # notice the absence of a "Password field", that is built in.
     objects = UserManager()
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['phone_number']  # Email & Password are required by default.
+    # Email & Password are required by default.
+    REQUIRED_FIELDS = ['phone_number', 'lastname']
 
     def get_full_name(self):
         # The user is identified by their email address
