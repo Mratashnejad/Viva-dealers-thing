@@ -1,2 +1,2 @@
-# vivaDeal
-Online gambling Tutorial website | Vivaro Dealer
+Online gambling Tutorial, Exams, Products, All that a professional Casino Dealer will be needs
+
