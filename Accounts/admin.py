@@ -6,7 +6,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 
 from .forms import UserAdminCreationForm, UserAdminChangeForm
-from .models import User
+from .models import User, profile
 
 
 class UserAdmin(BaseUserAdmin):
@@ -18,21 +18,21 @@ class UserAdmin(BaseUserAdmin):
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
     list_display = ('email', 'admin', 'lastname', 'fav_color')
-    list_filter = ('admin','staff','active')
+    list_filter = ('admin', 'staff', 'active')
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('lastname', 'fav_color')}),
-        ('Permissions', {'fields': ('admin', 'staff','active')}),
+        ('Personal info', {'fields': ('lastname', 'fav_color','address' )}),
+        ('Permissions', {'fields': ('admin', 'staff', 'active')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2','lastname','fav_color' , 'active','staff','admin')}
+            'fields': ('email', 'password1', 'password2', 'lastname', 'fav_color', 'active', 'staff', 'admin')}
          ),
     )
-    search_fields = ('email', 'fav_color' , 'lastname')
+    search_fields = ('email', 'fav_color', 'lastname')
     ordering = ('email',)
     filter_horizontal = ()
 
