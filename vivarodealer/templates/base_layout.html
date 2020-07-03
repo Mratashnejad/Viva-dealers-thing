@@ -36,185 +36,150 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/fonts/icomoon/style.css'%}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/css/bootstrap.min.css'%}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/css/magnific-popup.css'%}"
+    />
+    <link rel="stylesheet" href="{% static 'ecommerce/css/jquery-ui.css'%}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/css/owl.carousel.min.css'%}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/css/owl.theme.default.min.css'%}"
+    />
+
+    <link rel="stylesheet" href="{% static 'ecommerce/css/aos.css'%}" />
+
+    <link rel="stylesheet" href="{% static 'ecommerce/css/style.css'%}" />
   </head>
 
   <body>
-    <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"
-  />
-  <link
-    rel="stylesheet"
-    href="{% static 'ecommerce/fonts/icomoon/style.css'%}"
-  />
-
-  <link
-    rel="stylesheet"
-    href="{% static 'ecommerce/css/bootstrap.min.css'%}"
-  />
-  <link
-    rel="stylesheet"
-    href="{% static 'ecommerce/css/magnific-popup.css'%}"
-  />
-  <link rel="stylesheet" href="{% static 'ecommerce/css/jquery-ui.css'%}" />
-  <link
-    rel="stylesheet"
-    href="{% static 'ecommerce/css/owl.carousel.min.css'%}"
-  />
-  <link
-    rel="stylesheet"
-    href="{% static 'ecommerce/css/owl.theme.default.min.css'%}"
-  />
-
-  <link rel="stylesheet" href="{% static 'ecommerce/css/aos.css'%}" />
-
-  <link rel="stylesheet" href="{% static 'ecommerce/css/style.css'%}" />
-</head>
-<body>
-  <div class="site-wrap">
-    <div class="site-navbar bg-white py-2">
-      <div class="search-wrap">
-        <div class="container">
-          <a href="#" class="search-close js-search-close"
-            ><span class="icon-close2"></span
-          ></a>
-          <form action="#" method="post">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search keyword and hit enter..."
-            />
-          </form>
+    <div class="site-wrap">
+      <div class="site-navbar bg-white py-2">
+        <div class="search-wrap">
+          <div class="container">
+            <a href="#" class="search-close js-search-close"
+              ><span class="icon-close2"></span
+            ></a>
+            <form action="#" method="post">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search keyword and hit enter..."
+              />
+            </form>
+          </div>
         </div>
-      </div>
-
-      <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="logo">
-            <div class="site-logo">
-              <a href="index.html" class="js-logo-clone">Viva Dealer Shop</a>
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="logo">
+              <div class="site-logo">
+                <a href="index.html" class="js-logo-clone">Viva Dealer Shop</a>
+              </div>
             </div>
-          </div>
-          <div class="main-nav d-none d-lg-block">
-            <nav
-              class="site-navigation text-right text-md-center"
-              role="navigation"
-            >
-              <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li class="has-children active">
-                  <a href="index.html">Home</a>
-                  <ul class="dropdown">
-                    <li><a href="#">UniForms</a></li>
-                    <li><a href="#">shoes</a></li>
-                    <li><a href="#">accessories</a></li>
-                    <li class="has-children">
-                      <a href="#">Sub Menu</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menujhgj hvgckvhyjfhmg One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="#">New Arrivals</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          
-
-          <div class="icons">
-            <!-- search icon -->
-            <a class="dropdown">
-              <img src="{% static 'img/avatar/user-1.jpg'%}" width="40" height="40"class="rounded-circle">
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li class="nav-item dropdown">
+            <div class="main-nav d-none d-lg-block">
+              <nav
+                class="site-navigation text-right text-md-center"
+                role="navigation"
+              >
+                <ul class="site-menu js-clone-nav d-none d-lg-block">
+                  <li class="has-children active">
+                    <a href="{% url 'Ecommerce:shop_page'%}">Shop</a>
                     <ul class="dropdown">
-                    <a class="dropdown-item" href="#">Name : {{ user.Full_name}}</a>
+                      <li><a href="#">UniForms</a></li>
+                      <li><a href="#">shoes</a></li>
+                      <li><a href="#">accessories</a></li>
+                      <li class="has-children">
+                        <a href="#">Sub Menu</a>
+                        <ul class="dropdown">
+                          <li><a href="#">Menujhgj hvgckvhyjfhmg One</a></li>
+                          <li><a href="#">Menu Two</a></li>
+                          <li><a href="#">Menu Three</a></li>
+                        </ul>
+                      </li>
                     </ul>
                   </li>
-                </div>
-            </a>
-          
-            <a href="#" class="icons-btn d-inline-block js-search-open"
-              ><span class="icon-search"></span
-            ></a>
-            <!-- if is okey -->
-            {% if user.is_authenticated %}
-            <!-- favorit icon -->
-            <a href="#" class="icons-btn d-inline-block"
-              ><span class="icon-heart-o"></span
-            ></a>
-            <!-- cart items -->
-            <a href="cart.html" class="icons-btn d-inline-block bag">
-              <span class="icon-shopping-bag"></span>
-              <span class="number">2</span>
-            </a>
+                  <li><a href="shop.html">Shop</a></li>
+                  <li><a href="#">Catalogue</a></li>
+                  <li><a href="#">New Arrivals</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="icons">
+              <!-- search icon -->
+              <a href="#" class="icons-btn d-inline-block js-search-open"
+                ><span class="icon-search"></span
+              ></a>
+              <!-- if is okey -->
+              {% if user.is_authenticated %}
+              <!-- favorit icon -->
+              <a href="#" class="icons-btn d-inline-block"
+                ><span class="icon-heart-o"></span
+              ></a>
+              <!-- cart items -->
+              <a href="cart.html" class="icons-btn d-inline-block bag">
+                <span class="icon-shopping-bag"></span>
+                <span class="number">2</span>
+              </a>
+            </div>
             <!-- avataar -->
-            <a href="cart.html" class="dropdown">
-                      <li class="nav-item dropdown">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <img
-                              src="{% static 'img/avatar/user-1.jpg'%}"
-                              width="40"
-                              height="40"
-                              class="rounded-circle"
-                            />
-                        </a>
-                        
-                          <div
-                            class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink"
-                          >
-                            
-                            <a class="dropdown-item" href="#"
-                              >Name : {{ user.Full_name}}</a
-                            >
-                            <a class="dropdown-item" href="#"
-                              >email : {{ user.email}}</a
-                            >
-                          
-                           <a class="dropdown-item" href="#">Edit Profile</a>
-
-                            <form
-                              class="form-item"
-                              action="{% url 'accounts:logout'%}"
-                              method="POST"
-                            >
-                              {% csrf_token %}<button
-                                class="dropdown-item"
-                                type="submit"
-                              >
-                                Log out
-                              </button>
-                            </form>
- 
-              {%endif%}
-            <a
-              href="#"
-              class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"
-              ><span class="icon-menu"></span
-            ></a>
+            <div>
+              <a
+                class="dropdown"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <ul class="site-menu js-clone-nav d-none d-lg-block">
+                  <img
+                    src="{% static 'img/avatar/user-1.jpg'%}"
+                    width="40"
+                    height="40"
+                    class="rounded-circle"
+                  />
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdownMenuLink"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <a class="dropdown-item" href="#"
+                        >Name : {{ user.Full_name}}</a
+                      >
+                      <a class="dropdown-item" href="#">Edit Profile</a>
+                    </a>
+                  </li>
+                </ul>
+                {%endif%}
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-  </header>
-    <!-- Header part end-->
-
 
     <!--Block content-->
 
@@ -449,7 +414,6 @@
     <script src="{% static 'ecommerce/js/owl.carousel.min.js'%}"></script>
     <script src="{% static 'ecommerce/js/jquery.magnific-popup.min.js'%}"></script>
     <script src="{% static 'ecommerce/js/aos.js'%}"></script>
-
     <script src="{% static 'ecommerce/js/main.js'%}"></script>
   </body>
 </html>

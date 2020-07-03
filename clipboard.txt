@@ -1,0 +1,45 @@
+
+                  <a
+                    href="#"
+                    class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"
+                    ><span class="icon-menu"></span
+                  ></a>
+
+
+
+
+
+
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+
+
+
+                  #form
+                  <a class="dropdown-item" href="#"
+                    >Name : {{ user.Full_name}}</a
+                  >
+                  <a class="dropdown-item" href="#">email : {{ user.email}}</a>
+                  <a class="dropdown-item" href="#">Edit Profile</a>
+                  <form
+                    class="form-item"
+                    action="{% url 'accounts:logout'%}"
+                    method="POST"
+                  >
+                    {% csrf_token %}<button class="dropdown-item" type="submit">
+                      Log out
+                    </button>
+                  </form>
+                  <a
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
