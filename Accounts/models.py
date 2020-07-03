@@ -3,11 +3,11 @@ from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
-from phonenumber_field.modelfields import PhoneNumberField
+from phone_field import PhoneField
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, fav_color, lastname, password=None, is_active=True, is_staff=False, is_admin=False,):
+    def create_user(self, email, phone, Full_name, password=None, is_active=True, is_staff=False, is_admin=False,):
         """
         Creates and saves a User with the given email and password.
         """
@@ -18,10 +18,8 @@ class UserManager(BaseUserManager):
 
         user = self.model(
             email=self.normalize_email(email),
-            fav_color=fav_color,
-            lastname=lastname,
-            city=profile.city,
-            address=profile.address,
+            phone=phone,
+            Full_name=Full_name,
 
         )
 
@@ -41,18 +39,18 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password, fav_color, lastname,):
+    def create_superuser(self, email, password, phone, Full_name):
         """
         Creates and saves a superuser with the given email and password.
         """
         user = self.create_user(
             email,
             password=password,
-            fav_color=fav_color,
-            lastname=lastname,
-            
+            phone=phone,
+            Full_name=Full_name,
 
         )
+
         user.staff = True
         user.admin = True
         user.save(using=self._db)
@@ -62,9 +60,9 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     email = models.EmailField(
         verbose_name='email address', max_length=255, unique=True)
-    
-    lastname = models.CharField(max_length=100)
-    fav_color = models.CharField(max_length=10)
+
+    Full_name = models.CharField(max_length=100)
+    phone = PhoneField(blank=True, help_text='Contact phone number')
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)  # a admin user; non super-user
     admin = models.BooleanField(default=False)  # a superuser
@@ -72,7 +70,7 @@ class User(AbstractBaseUser):
     objects = UserManager()
     USERNAME_FIELD = 'email'
     # Email & Password are required by default.
-    REQUIRED_FIELDS = ['fav_color', 'lastname',]
+    REQUIRED_FIELDS = ['phone', 'Full_name']
 
     def get_full_name(self):
         # The user is identified by their email address
@@ -109,9 +107,3 @@ class User(AbstractBaseUser):
     def is_active(self):
         "Is the user active?"
         return self.active
-
-
-class profile(User):
-    user = models.OneToOneField(User, on_delete=models.CASCADE),
-    address = models.CharField(max_length=255),
-    city = models.CharField(max_length=120),

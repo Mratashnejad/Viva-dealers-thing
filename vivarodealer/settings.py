@@ -27,14 +27,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'ecommerce',
     'crispy_forms',
     'Courses',
     'Accounts',
     'Exam',
     'Games',
-    'phonenumber_field',
+    'phone_field',
 ]
 
 AUTH_USER_MODEL = 'Accounts.User'  # change the built-in user models to ours
