@@ -92,68 +92,116 @@
         <div class="d-flex align-items-center justify-content-between">
           <div class="logo">
             <div class="site-logo">
-              <a href="{% url 'homepage'%}" class="js-logo-clone">Viva Dealer Needs</a>
+              <a href="index.html" class="js-logo-clone">Viva Dealer Shop</a>
             </div>
           </div>
           <div class="main-nav d-none d-lg-block">
-            
-              {% if user.is_authenticated %}
+            <nav
+              class="site-navigation text-right text-md-center"
+              role="navigation"
+            >
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li class="has-children active">
+                  <a href="index.html">Home</a>
+                  <ul class="dropdown">
+                    <li><a href="#">UniForms</a></li>
+                    <li><a href="#">shoes</a></li>
+                    <li><a href="#">accessories</a></li>
+                    <li class="has-children">
+                      <a href="#">Sub Menu</a>
+                      <ul class="dropdown">
+                        <li><a href="#">Menujhgj hvgckvhyjfhmg One</a></li>
+                        <li><a href="#">Menu Two</a></li>
+                        <li><a href="#">Menu Three</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#">Catalogue</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          
 
           <div class="icons">
+            <!-- search icon -->
+            <a class="dropdown">
+              <img src="{% static 'img/avatar/user-1.jpg'%}" width="40" height="40"class="rounded-circle">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li class="nav-item dropdown">
+                    <ul class="dropdown">
+                    <a class="dropdown-item" href="#">Name : {{ user.Full_name}}</a>
+                    </ul>
+                  </li>
+                </div>
+            </a>
+          
             <a href="#" class="icons-btn d-inline-block js-search-open"
               ><span class="icon-search"></span
             ></a>
+            <!-- if is okey -->
+            {% if user.is_authenticated %}
+            <!-- favorit icon -->
             <a href="#" class="icons-btn d-inline-block"
               ><span class="icon-heart-o"></span
             ></a>
+            <!-- cart items -->
             <a href="cart.html" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
               <span class="number">2</span>
             </a>
-            
-            <a class="dropdown"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              >
-              <img src="{% static 'img/avatar/user-1.jpg'%}" width="40"
-                height="40"
-                class="rounded-circle"
-              />
-            </a>
-          <div
-              class="dropdown-menu"
-              aria-labelledby="navbarDropdownMenuLink"
-            >
-          <br class="dropdown-item" href="#"
-            ><a>Dealer :{{user.Full_name}} </a
-          >
-          <br class="dropdown-item" href="#"
-            >phone :{{user.phone}} </a
-          >
-          <form
-           class="form-item"
-           action="{% url 'accounts:logout'%}"
-            method="POST"
-          >
-          {% csrf_token %}<button
-          class="dropdown-item"
-          type="submit"
-          >
-            Log out
-          </button>
-          </form>
-          {% else %}
-           <!--login-->
-           <div class="icons">
-            <a href="#" class="icons-btn d-inline-block js-search-open"
-              ><span class="icon-search"></span>
-              <a href="{% url 'accounts:login'%}">Login</a> / <a href="{% url 'accounts:signup'%}">SignUp</a>
-            </a>
-           {% endif %}          
+            <!-- avataar -->
+            <a href="cart.html" class="dropdown">
+                      <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            <img
+                              src="{% static 'img/avatar/user-1.jpg'%}"
+                              width="40"
+                              height="40"
+                              class="rounded-circle"
+                            />
+                        </a>
+                        
+                          <div
+                            class="dropdown-menu"
+                            aria-labelledby="navbarDropdownMenuLink"
+                          >
+                            
+                            <a class="dropdown-item" href="#"
+                              >Name : {{ user.Full_name}}</a
+                            >
+                            <a class="dropdown-item" href="#"
+                              >email : {{ user.email}}</a
+                            >
+                          
+                           <a class="dropdown-item" href="#">Edit Profile</a>
+
+                            <form
+                              class="form-item"
+                              action="{% url 'accounts:logout'%}"
+                              method="POST"
+                            >
+                              {% csrf_token %}<button
+                                class="dropdown-item"
+                                type="submit"
+                              >
+                                Log out
+                              </button>
+                            </form>
+ 
+              {%endif%}
             <a
               href="#"
               class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"
@@ -164,82 +212,9 @@
       </div>
     </div>
 
-    <!--::header part start::-->
-    
-    <div class="container">
-        <div class="main-nav d-none d-lg-block">
-        <div class="d-flex align-items-center justify-content-between">
-        <div class="row align-items-center">
-          <div class="col-lg-12">
-            <nav class="navbar navbar-expand-lg navbar-light">
-              <nav
-              class="site-navigation text-right text-md-center"
-              role="navigation"
-            >
-              <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li class="has-children active">
-                <a href="{% url 'Ecommerce:shop_page'%}"> Shop</a>
-                <ul class="dropdown">
-                  <li><a href="{% url 'Courses:Blackjack'%}">Uniforms</a></li>
-                  <li><a href="{% url 'Courses:Poker'%}">Shoes</a></li>
-                  <li><a href="{% url 'Courses:Roulatte'%}">Golds</a></li>
-                  <li><a href="{% url 'Courses:Baccarat'%}">Perfom</a></li>
-                  <li class="has-children">
-                    <a href="#">accessories</a>
-                    <ul class="dropdown">
-                      <li><a href="#">Card holder</a></li>
-                      <li><a href="#">cute things</a></li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              </li> 
-                
-                <li class="has-children active">
-                  <a href="{% url 'homepage'%}">Courses</a>
-                  <ul class="dropdown">
-                    <li><a href="{% url 'Courses:Blackjack'%}">Black Jack</a></li>
-                    <li><a href="{% url 'Courses:Poker'%}">Poker</a></li>
-                    <li><a href="{% url 'Courses:Roulatte'%}">Roulatte</a></li>
-                    <li><a href="{% url 'Courses:Baccarat'%}">Baccarat</a></li>
-                    <li><a href="{% url 'Courses:Dragontiger'%}">Dragon Tiger</a></li>
-                    <li><a href="{% url 'Courses:Keno'%}">Keno</a></li>
-                    <li class="has-children">
-                      <a href="#">Bounos</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Honey Bounos</a></li>
-                        <li><a href="#">Perfect Pair</a></li>
-                        <li><a href="#">lucky Seven</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                
-                <li><a href="#">Apartemants</a></li>
-                <li><a href="#">Translations</a></li>
-                <li><a href="#">Exam</a></li>
-                <li><a href="#">Events</a></li>
-
-                <li><a href="{% url 'contact'%}">Contact</a></li>
-                <li><a  href="{% url 'blog'%}">Blog</a></li>
-                <li><a  href="{% url 'blog'%}">about</a></li>
-                </ul>
-            </nav>
-            </nav>
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>
-    </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</header>
+  </header>
     <!-- Header part end-->
+
 
     <!--Block content-->
 
