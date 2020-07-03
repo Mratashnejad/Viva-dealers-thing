@@ -39,235 +39,206 @@
   </head>
 
   <body>
-    <!--::header part start::-->
-    <header class="main_menu home_menu">
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"
+  />
+  <link
+    rel="stylesheet"
+    href="{% static 'ecommerce/fonts/icomoon/style.css'%}"
+  />
+
+  <link
+    rel="stylesheet"
+    href="{% static 'ecommerce/css/bootstrap.min.css'%}"
+  />
+  <link
+    rel="stylesheet"
+    href="{% static 'ecommerce/css/magnific-popup.css'%}"
+  />
+  <link rel="stylesheet" href="{% static 'ecommerce/css/jquery-ui.css'%}" />
+  <link
+    rel="stylesheet"
+    href="{% static 'ecommerce/css/owl.carousel.min.css'%}"
+  />
+  <link
+    rel="stylesheet"
+    href="{% static 'ecommerce/css/owl.theme.default.min.css'%}"
+  />
+
+  <link rel="stylesheet" href="{% static 'ecommerce/css/aos.css'%}" />
+
+  <link rel="stylesheet" href="{% static 'ecommerce/css/style.css'%}" />
+</head>
+<body>
+  <div class="site-wrap">
+    <div class="site-navbar bg-white py-2">
+      <div class="search-wrap">
+        <div class="container">
+          <a href="#" class="search-close js-search-close"
+            ><span class="icon-close2"></span
+          ></a>
+          <form action="#" method="post">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search keyword and hit enter..."
+            />
+          </form>
+        </div>
+      </div>
+
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-12">
-            <nav class="navbar navbar-expand-lg navbar-light">
-              <a class="navbar-brand" href="{% url 'homepage'%}">
-                <img src="{% static 'img/logo.png' %}" alt="vivarodelarlogo" />
-              </a>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="logo">
+            <div class="site-logo">
+              <a href="{% url 'homepage'%}" class="js-logo-clone">Viva Dealer Needs</a>
+            </div>
+          </div>
+          <div class="main-nav d-none d-lg-block">
+            
+              {% if user.is_authenticated %}
+
+          <div class="icons">
+            <a href="#" class="icons-btn d-inline-block js-search-open"
+              ><span class="icon-search"></span
+            ></a>
+            <a href="#" class="icons-btn d-inline-block"
+              ><span class="icon-heart-o"></span
+            ></a>
+            <a href="cart.html" class="icons-btn d-inline-block bag">
+              <span class="icon-shopping-bag"></span>
+              <span class="number">2</span>
+            </a>
+            
+            <a class="dropdown"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
               >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div
-                class="collapse navbar-collapse main-menu-item justify-content-end"
-                id="navbarSupportedContent"
-              >
-                <ul class="navbar-nav align-items-center">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'homepage'%}">Home</a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'Ecommerce:shop_page'%}"
-                      >Prudocts</a
-                    >
-                  </li>
-
-                  <li class="nav-item dropdown">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="{% url 'homepage'%}"
-                      id="navbarDropdown"
-                      role="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Courses
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a
-                        class="dropdown-item"
-                        href="{% url 'Courses:Blackjack'%}"
-                        >Black Jack</a
-                      >
-                      <a class="dropdown-item" href="{% url 'Courses:Poker'%}"
-                        >Poker</a
-                      >
-                      <a
-                        class="dropdown-item"
-                        href="{% url 'Courses:Roulatte'%}"
-                        >Roulette</a
-                      >
-                      <a
-                        class="dropdown-item"
-                        href="{% url 'Courses:Dragontiger'%}"
-                        >Dragon Tiger</a
-                      >
-                      <a
-                        class="dropdown-item"
-                        href="{% url 'Courses:Baccarat'%}"
-                        >Baccarat</a
-                      >
-                      <a class="dropdown-item" href="{% url 'Courses:Keno'%}"
-                        >Keno</a
-                      >
-                    </div>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="{%url 'about'%}">About</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog'%}">Blog</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contact'%}">Contact</a>
-                  </li>
-
-                  <!-- if user is login change button -->
-                  {% if user.is_authenticated %}
-                  <!--  -->
-
-                  <!-- logout -->
-                  <li class="d-none d-lg-block">
-                    <!--some thing -->
-                    <button
-                      class="navbar-toggler"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#navbar-list-4"
-                      aria-controls="navbarNav"
-                      aria-expanded="false"
-                      aria-label="Toggle navigation"
-                    >
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbar-list-4">
-                      <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                          <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <img
-                              src="{% static 'img/avatar/user-1.jpg'%}"
-                              width="40"
-                              height="40"
-                              class="rounded-circle"
-                            />
-                          </a>
-                          <div
-                            class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink"
-                          >
-                            <br class="dropdown-item" href="#"
-                              >Dealer : </a
-                            >
-                            <br class="dropdown-item" href="#"
-                              >Dealer : </a
-                            >
-                          </div>
-                          <div
-                            class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink"
-                          >
-                            <a class="dropdown-item" href="#"
-                              >Dealer : </a
-                            >
-                            <a class="dropdown-item" href="#"
-                              >color : </a
-                            >
-                            <a class="dropdown-item" href="#"
-                              >email : {{ user.email}}</a
-                            >
-                            <a class="dropdown-item" href="#"
-                              >email : {{ user.email}}</a
-                            >
-                          
-                            <!-- <a class="dropdown-item" href="#">Edit Profile</a> -->
-
-                            <form
-                              class="form-item"
-                              action="{% url 'accounts:logout'%}"
-                              method="POST"
-                            >
-                              {% csrf_token %}<button
-                                class="dropdown-item"
-                                type="submit"
-                              >
-                                Log out
-                              </button>
-                            </form>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  {% else %}
-                  <!--login-->
-                  <li class="d-none d-lg-block">
-                    <a
-                      class="genric-btn primary-border small"
-                      href="{% url 'accounts:login'%}"
-                      >Log In</a
-                    >
-                  </li>
-                  <!--sing in-->
-                  <li class="d-none d-lg-block">
-                    <a
-                      class="genric-btn primary small"
-                      href="{% url 'accounts:signup'%}"
-                      >Sign Up</a
-                    >
-                    <!-- btn logout change style -->
-                  </li>
-                  {% endif %}
-                  <!-- <li class="nav-item dropdown"> Language menu drop down img
-                    <img
-                      src="{%static 'img/flags/england.png'%}"
-                      class="nav-link dropdown-toggle"
-                      href="{% url 'homepage'%}"
-                      id="navbarDropdown"
-                      role="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    />
-                    
-                    <img
-                      src="{%static 'img/flags/russia.png'%}"
-                      class="dropdown-item"
-                      href="{% url 'Courses:Baccarat'%}"
-                    />
-
-                    <img
-                      src="{%static 'img/flags/russia.png'%}"
-                      class="dropdown-item"
-                      href="{% url 'Courses:Blackjack'%}"
-                    />
-
-                    <img
-                      src="{%static 'img/flags/iran.png'%}"
-                      class="dropdown-item"
-                      href="{% url 'Courses:Blackjack'%}"
-                    />
-                  </li> -->
-                </ul>
-              </div>
-            </nav>
+              <img src="{% static 'img/avatar/user-1.jpg'%}" width="40"
+                height="40"
+                class="rounded-circle"
+              />
+            </a>
+          <div
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+          <br class="dropdown-item" href="#"
+            ><a>Dealer :{{user.Full_name}} </a
+          >
+          <br class="dropdown-item" href="#"
+            >phone :{{user.phone}} </a
+          >
+          <form
+           class="form-item"
+           action="{% url 'accounts:logout'%}"
+            method="POST"
+          >
+          {% csrf_token %}<button
+          class="dropdown-item"
+          type="submit"
+          >
+            Log out
+          </button>
+          </form>
+          {% else %}
+           <!--login-->
+           <div class="icons">
+            <a href="#" class="icons-btn d-inline-block js-search-open"
+              ><span class="icon-search"></span>
+              <a href="{% url 'accounts:login'%}">Login</a> / <a href="{% url 'accounts:signup'%}">SignUp</a>
+            </a>
+           {% endif %}          
+            <a
+              href="#"
+              class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"
+              ><span class="icon-menu"></span
+            ></a>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+
+    <!--::header part start::-->
+    
+    <div class="container">
+        <div class="main-nav d-none d-lg-block">
+        <div class="d-flex align-items-center justify-content-between">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <nav
+              class="site-navigation text-right text-md-center"
+              role="navigation"
+            >
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li class="has-children active">
+                <a href="{% url 'Ecommerce:shop_page'%}"> Shop</a>
+                <ul class="dropdown">
+                  <li><a href="{% url 'Courses:Blackjack'%}">Uniforms</a></li>
+                  <li><a href="{% url 'Courses:Poker'%}">Shoes</a></li>
+                  <li><a href="{% url 'Courses:Roulatte'%}">Golds</a></li>
+                  <li><a href="{% url 'Courses:Baccarat'%}">Perfom</a></li>
+                  <li class="has-children">
+                    <a href="#">accessories</a>
+                    <ul class="dropdown">
+                      <li><a href="#">Card holder</a></li>
+                      <li><a href="#">cute things</a></li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              </li> 
+                
+                <li class="has-children active">
+                  <a href="{% url 'homepage'%}">Courses</a>
+                  <ul class="dropdown">
+                    <li><a href="{% url 'Courses:Blackjack'%}">Black Jack</a></li>
+                    <li><a href="{% url 'Courses:Poker'%}">Poker</a></li>
+                    <li><a href="{% url 'Courses:Roulatte'%}">Roulatte</a></li>
+                    <li><a href="{% url 'Courses:Baccarat'%}">Baccarat</a></li>
+                    <li><a href="{% url 'Courses:Dragontiger'%}">Dragon Tiger</a></li>
+                    <li><a href="{% url 'Courses:Keno'%}">Keno</a></li>
+                    <li class="has-children">
+                      <a href="#">Bounos</a>
+                      <ul class="dropdown">
+                        <li><a href="#">Honey Bounos</a></li>
+                        <li><a href="#">Perfect Pair</a></li>
+                        <li><a href="#">lucky Seven</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                
+                <li><a href="#">Apartemants</a></li>
+                <li><a href="#">Translations</a></li>
+                <li><a href="#">Exam</a></li>
+                <li><a href="#">Events</a></li>
+
+                <li><a href="{% url 'contact'%}">Contact</a></li>
+                <li><a  href="{% url 'blog'%}">Blog</a></li>
+                <li><a  href="{% url 'blog'%}">about</a></li>
+                </ul>
+            </nav>
+            </nav>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
     <!-- Header part end-->
 
     <!--Block content-->
@@ -496,5 +467,14 @@
     <script src="{% static 'js/waypoints.min.js'%}"></script>
     <!-- custom js -->
     <script src="{% static 'js/custom.js'%}"></script>
+    <script src="{% static 'ecommerce/js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'ecommerce/js/jquery-ui.js'%}"></script>
+    <script src="{% static 'ecommerce/js/popper.min.js'%}"></script>
+    <script src="{% static 'ecommerce/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'ecommerce/js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'ecommerce/js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'ecommerce/js/aos.js'%}"></script>
+
+    <script src="{% static 'ecommerce/js/main.js'%}"></script>
   </body>
 </html>
