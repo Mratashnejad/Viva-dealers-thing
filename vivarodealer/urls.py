@@ -1,8 +1,11 @@
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url, include
+from django.urls import path
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -15,8 +18,18 @@ urlpatterns = [
     url(r'^courses/', include('Courses.urls')),
     url(r'^accounts/', include('Accounts.urls')),
     url(r'^games/', include('Games.urls')),
-    url(r'^shop/', include('ecommerce.urls')),
+    # url(r'^shop/', include('ecommerce.urls')),
+    path('', include('ecommerce.urls', namespace='ecommerce'))
 ]
 
 handler404 = views.error404
 urlpatterns += staticfiles_urlpatterns()
+
+
+# if settings.DEBUG:
+#     import debug_toolbar
+#     urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]
+#     urlpatterns += static(settings.MEDIA_URL,
+#                           document_root=settings.MEDIA_ROOT)
+#     urlpatterns += static(settings.STATIC_URL,
+#                           document_root=settings.STATIC_ROOT)
