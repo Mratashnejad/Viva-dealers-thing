@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'ecommerce',
     'crispy_forms',
     'Courses',
-    'Accounts',
     'Exam',
     'Games',
     'phone_field',
@@ -38,12 +37,12 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.google', 
-    'allauth.socialaccount.providers.facebook', 
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
     'django_countries',
 ]
 
-AUTH_USER_MODEL = 'Accounts.User'  # change the built-in user models to ours
+# AUTH_USER_MODEL = 'Accounts.User'  # change the built-in user models to ours
 
 # allauth
 
