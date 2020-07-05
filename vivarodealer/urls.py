@@ -16,10 +16,11 @@ urlpatterns = [
     url(r'^contact/$', views.contact_page, name='contact'),
     url(r'^blog/$', views.blog_page, name='blog'),
     url(r'^courses/', include('Courses.urls')),
-    url(r'^accounts/', include('Accounts.urls')),
+    path('accounts/', include('allauth.urls')),
     url(r'^games/', include('Games.urls')),
     # url(r'^shop/', include('ecommerce.urls')),
-    path('', include('ecommerce.urls', namespace='ecommerce'))
+    path('', include('ecommerce.urls', namespace='ecommerce')),
+
 ]
 
 handler404 = views.error404
