@@ -190,11 +190,7 @@
                           <li><a href="#"> Name :{{user.Full_name}}</a></li>
                           <li><a href="#">Email : {{user.email}}</a></li>
                           <li>
-                            <form
-                              class="form-item"
-                              action="{% url 'accounts:logout'%}"
-                              method="POST"
-                            >
+                            <form class="form-item" action="" method="POST">
                               {% csrf_token %}<button
                                 class="dropdown-item"
                                 type="submit"
