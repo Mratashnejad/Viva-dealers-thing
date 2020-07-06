@@ -18,8 +18,8 @@ urlpatterns = [
     url(r'^courses/', include('Courses.urls')),
     path('accounts/', include('allauth.urls')),
     url(r'^games/', include('Games.urls')),
-    # url(r'^shop/', include('ecommerce.urls')),
-    path('', include('ecommerce.urls', namespace='ecommerce')),
+    url(r'^shop/', include('ecommerce.urls')),
+    # path('', include('ecommerce.urls', namespace='ecommerce')),
 
 ]
 

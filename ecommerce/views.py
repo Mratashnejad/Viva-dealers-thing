@@ -31,7 +31,7 @@ def products(request):
     context = {
         'items': Item.objects.all()
     }
-    return render(request, "products.html", context)
+    return render(request, "product.html", context)
 
 
 def is_valid_form(values):

@@ -1,4 +1,4 @@
-{% load static %} {% load account %} {% load ecommerce templates %}
+{% load static %} {% load account %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -209,6 +209,12 @@
               <a>Welcome Dear :</a>
               <a href=""> {% user_display user %}</a>
             </div>
+            <div>
+              <a>Balance :</a>
+              {% for user in User%}
+              <a href=""> </a>
+              {%endfor%}
+            </div>
             <!-- avataar -->
             <div>
               <div class="main-nav d-none d-lg-block">
@@ -271,7 +277,7 @@
     </div>
 
     <!--Block content-->
-    {% include "ecommerce/templates/shop.html" %} {%block content%} {%endblock%}
+    {%block content%} {%endblock%}
 
     <!--End Block content-->
 
