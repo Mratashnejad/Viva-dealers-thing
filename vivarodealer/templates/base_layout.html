@@ -1,6 +1,4 @@
-{% load static %}
-{% load account %}
-
+{% load static %} {% load account %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,21 +12,54 @@
     <title>Vivaro Dealer | Shopping | Online Courses |</title>
     <link rel="icon" href="{% static 'img/favicon.png'%}" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" />
+    <!-- <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" /> -->
     <!-- animate CSS -->
-    <link rel="stylesheet" href="{%static 'css/animate.css'%}" />
+    <!-- <link rel="stylesheet" href="{%static 'css/animate.css'%}" /> -->
     <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{%static 'css/owl.carousel.min.css'%}" />
+    <!-- <link rel="stylesheet" href="{%static 'css/owl.carousel.min.css'%}" /> -->
     <!-- themify CSS -->
-    <link rel="stylesheet" href="{%static 'css/themify-icons.css'%}" />
+    <!-- <link rel="stylesheet" href="{%static 'css/themify-icons.css'%}" /> -->
     <!-- flaticon CSS -->
-    <link rel="stylesheet" href="{%static 'css/flaticon.css'%}" />
+    <!-- <link rel="stylesheet" href="{%static 'css/flaticon.css'%}" /> -->
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{%static 'css/magnific-popup.css'%}" />
+    <!-- <link rel="stylesheet" href="{%static 'css/magnific-popup.css'%}" /> -->
     <!-- swiper CSS -->
-    <link rel="stylesheet" href="{%static 'css/slick.css'%}" />
+    <!-- <link rel="stylesheet" href="{%static 'css/slick.css'%}" /> -->
     <!-- style CSS -->
-    <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+    <!-- <link rel="stylesheet" href="{%static 'css/style.css'%}" /> -->
+
+    <!-- ecommerce statics -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/fonts/icomoon/style.css'%"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/css/bootstrap.min.css'%"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/css/magnific-popup.css'%"
+    />
+    <link rel="stylesheet" href="{% static 'ecommerce/css/jquery-ui.css'%" />
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/css/owl.carousel.min.css'%"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/css/owl.theme.default.min.css'%"
+    />
+
+    <link rel="stylesheet" href="{% static 'ecommerce/css/aos.css'%" />
+
+    <link rel="stylesheet" href="{% static 'ecommerce/css/style.css'%" />
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -172,26 +203,23 @@
                 <span class="icon-shopping-bag"></span>
                 <span class="number">2</span>
               </a>
-               
             </div>
             <!-- text for retrive name account of user  -->
-            <div><a>Welcome Dear :</a>
-              <a href="">  {% user_display user %}</a>
+            <div>
+              <a>Welcome Dear :</a>
+              <a href=""> {% user_display user %}</a>
             </div>
             <!-- avataar -->
             <div>
               <div class="main-nav d-none d-lg-block">
-                
                 <nav
                   class="site-navigation text-right text-md-center"
                   role="navigation"
                 >
                   <ul class="site-menu js-clone-nav d-none d-lg-block">
-                    
                     <ul class="has-children active">
-                      
                       <li class="has-children">
-                      <!-- allauth retrive avatar picture profile -->
+                        <!-- allauth retrive avatar picture profile -->
                         <img
                           src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
                           width="40"
@@ -232,7 +260,8 @@
                 <span class="number">2</span>
               </a>
 
-              <a href="{% url 'account_login' %}">Sign In</a> / <a href="{% url 'account_signup' %}">Sign Up</></a>
+              <a href="{% url 'account_login' %}">Sign In</a> /
+              <a href="{% url 'account_signup' %}">Sign Up</a>
             </div>
             {%endif%}
             <!-- Links -->
@@ -243,120 +272,9 @@
 
     <!--Block content-->
 
-    {%block content%} {%endblock%}
+    {%block content%} {% include "ecommerce/shop.html" %} {%endblock%}
 
     <!--End Block content-->
-
-    <!-- ::blog_part start::
-    <section class="blog_part section_padding">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xl-5">
-            <div class="section_tittle text-center">
-              <p>Our Blog</p>
-              <h2>Dealers Blog</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-lg-4 col-xl-4">
-            <div class="single-home-blog">
-              <div class="card">
-                <img
-                  src="{% static 'img/blog/blog_1.jpg'%}"
-                  class="card-img-top"
-                  alt="blog"
-                />
-                <div class="card-body">
-                  <a href="#" class="btn_4">Black Jack</a>
-                  <a href="blog.html">
-                    <h5 class="card-title">
-                      Blackjack At Bellagio and New York-New York
-                    </h5>
-                  </a>
-                  <p>
-                    MGM Resorts spilled some details about its casinos reopening
-                    during its first-quarter earnings call. The international
-                    casino operator will reopen casinos around the country when
-                    local governments allow them to. During the call, a
-                    representative for the company mentioned that Mississippi
-                    might open before Nevada and New Jersey but that was more of
-                    a hunch
-                  </p>
-                  <ul>
-                    <li><span class="ti-comments"></span>2 Comments</li>
-                    <li><span class="ti-heart"></span>2k Like</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-4">
-            <div class="single-home-blog">
-              <div class="card">
-                <img
-                  src="{%static 'img/blog/blog_2.jpg'%}"
-                  class="card-img-top"
-                  alt="blog"
-                />
-                <div class="card-body">
-                  <a href="#" class="btn_4">Roulette</a>
-                  <a href="blog.html">
-                    <h5 class="card-title">
-                      Las Vegas casino floor with plastic barriers
-                    </h5>
-                  </a>
-                  <p>
-                    Pictures showing the casino floor ahead of reopening reveal
-                    the new safety measures being implemented Plexiglas barriers
-                    between slot machines and social distancing markers at
-                    tables have been introduced
-                  </p>
-                  <ul>
-                    <li><span class="ti-comments"></span>2 Comments</li>
-                    <li><span class="ti-heart"></span>2k Like</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-4">
-            <div class="single-home-blog">
-              <div class="card">
-                <img
-                  src="{%static 'img/blog/blog_3.jpg' %}"
-                  class="card-img-top"
-                  alt="blog"
-                />
-                <div class="card-body">
-                  <a href="#" class="btn_4">Poker</a>
-                  <a href="blog.html">
-                    <h5 class="card-title">
-                      Simon Watt Wins WSOP Gold Bracelet in Event
-                    </h5>
-                  </a>
-                  <p>
-                    Simon Says, "I Won a WSOP Gold Bracelet!" Simon Watt was the
-                    winner of the third $1,500 buy-in No-Limit Hold’em
-                    championship at this year’s World Series of Poker. Watt is a
-                    27-year-old software developer from Auckland, New Zealand.
-                    With his thrilling victory in the 11th gold bracelet event
-                    on the schedule in front of a packed final table gallery at
-                    the Rio in Las Vegas, Watt became the first New Zealander in
-                    history to win a WSOP title.
-                  </p>
-                  <ul>
-                    <li><span class="ti-comments"></span>2 Comments</li>
-                    <li><span class="ti-heart"></span>2k Like</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!--::blog_part end::-->
 
     <!-- footer part start-->
     <footer class="footer-area">
@@ -447,24 +365,24 @@
 
     <!-- jquery plugins here-->
     <!-- jquery -->
-    <script src="{% static 'js/jquery-1.12.1.min.js'%}"></script>
+    <!-- <script src="{% static 'js/jquery-1.12.1.min.js'%}"></script> -->
     <!-- popper js -->
-    <script src="{% static 'js/popper.min.js'%}"></script>
+    <!-- <script src="{% static 'js/popper.min.js'%}"></script> -->
     <!-- bootstrap js -->
-    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <!-- <script src="{% static 'js/bootstrap.min.js'%}"></script> -->
     <!-- easing js -->
-    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+    <!-- <script src="{% static 'js/jquery.magnific-popup.js' %}"></script> -->
     <!-- swiper js -->
-    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <!-- <script src="{% static 'js/swiper.min.js' %}"></script> -->
     <!-- swiper js -->
-    <script src="{%static 'js/masonry.pkgd.js'%}"></script>
+    <!-- <script src="{%static 'js/masonry.pkgd.js'%}"></script> -->
     <!-- particles js -->
-    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
-    <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+    <!-- <script src="{% static 'js/owl.carousel.min.js'%}"></script> -->
+    <!-- <script src="{% static 'js/jquery.nice-select.min.js'%}"></script> -->
     <!-- swiper js -->
-    <script src="{% static 'js/slick.min.js'%}"></script>
-    <script src="{% static 'js/jquery.counterup.min.js'"></script>
-    <script src="{% static 'js/waypoints.min.js'%}"></script>
+    <!-- <script src="{% static 'js/slick.min.js'%}"></script> -->
+    <!-- <script src="{% static 'js/jquery.counterup.min.js'"></script> -->
+    <!-- <script src="{% static 'js/waypoints.min.js'%}"></script> -->
     <!-- custom js -->
     <script src="{% static 'js/custom.js'%}"></script>
     <script src="{% static 'ecommerce/js/jquery-3.3.1.min.js'%}"></script>
