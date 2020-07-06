@@ -187,17 +187,13 @@
                           class="rounded-circle"
                         />
                         <ul class="dropdown">
-                          <li><a href="#"> Name :{{user.Full_name}}</a></li>
-                          <li><a href="#">Email : {{user.email}}</a></li>
                           <li>
-                            <form class="form-item" action="" method="POST">
-                              {% csrf_token %}<button
-                                class="dropdown-item"
-                                type="submit"
-                              >
-                                Log out
-                              </button>
-                            </form>
+                            <a href="{% url 'account_email' %}"
+                              >Change E-mail</a
+                            >
+                          </li>
+                          <li>
+                            <a href="{% url 'account_logout' %}">Sign Out</a>
                           </li>
                         </ul>
                       </li>
@@ -223,6 +219,8 @@
                 <span class="icon-shopping-bag"></span>
                 <span class="number">2</span>
               </a>
+
+              <a href="{% url 'account_login' %}">Sign In</a> / <a href="{% url 'account_signup' %}">Sign Up</></a>
             </div>
             {%endif%}
             <!-- Links -->

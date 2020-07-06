@@ -102,7 +102,7 @@ ROOT_URLCONF = 'vivarodealer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['vivarodealer/templates'],
+        'DIRS': ['vivarodealer/templates' , os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
