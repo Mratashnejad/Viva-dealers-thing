@@ -180,8 +180,9 @@
                   <ul class="site-menu js-clone-nav d-none d-lg-block">
                     <ul class="has-children active">
                       <li class="has-children">
+                      <!-- allauth retrive avatar picture profile -->
                         <img
-                          src="{% static 'img/avatar/user-1.jpg'%}"
+                          src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
                           width="40"
                           height="40"
                           class="rounded-circle"
