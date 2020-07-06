@@ -1,4 +1,7 @@
 {% load static %}
+{% load account %}
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -169,16 +172,24 @@
                 <span class="icon-shopping-bag"></span>
                 <span class="number">2</span>
               </a>
+               
+            </div>
+            <!-- text for retrive name account of user  -->
+            <div><a>Welcome Dear :</a>
+              <a href="">  {% user_display user %}</a>
             </div>
             <!-- avataar -->
             <div>
               <div class="main-nav d-none d-lg-block">
+                
                 <nav
                   class="site-navigation text-right text-md-center"
                   role="navigation"
                 >
                   <ul class="site-menu js-clone-nav d-none d-lg-block">
+                    
                     <ul class="has-children active">
+                      
                       <li class="has-children">
                       <!-- allauth retrive avatar picture profile -->
                         <img
