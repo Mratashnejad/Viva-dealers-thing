@@ -1,4 +1,4 @@
-{% load static %} {% load account %}
+{% load static %} {% load account %} {% load ecommerce templates %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -271,8 +271,7 @@
     </div>
 
     <!--Block content-->
-
-    {%block content%} {% include "ecommerce/shop.html" %} {%endblock%}
+    {% include "ecommerce/templates/shop.html" %} {%block content%} {%endblock%}
 
     <!--End Block content-->
 
