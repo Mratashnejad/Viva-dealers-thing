@@ -1,0 +1,168 @@
+{%load static%} {% load account %}
+<div class="site-wrap">
+  <div class="site-navbar bg-white py-2">
+    <div class="search-wrap">
+      <div class="container">
+        <a href="#" class="search-close js-search-close"
+          ><span class="icon-close2"></span
+        ></a>
+        <form action="#" method="post">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search keyword and hit enter..."
+          />
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <div class="site-logo">
+            <a href="{%url 'homepage'%}" class="js-logo-clone">Vivaro Dealer</a>
+          </div>
+        </div>
+        <div class="main-nav d-none d-lg-block">
+          <nav
+            class="site-navigation text-right text-md-center"
+            role="navigation"
+          >
+            <ul class="site-menu js-clone-nav d-none d-lg-block">
+              <li class="has-children active">
+                <a href="{% url 'ecommerce:shop_page'%}">Shop</a>
+                <ul class="dropdown">
+                  <li><a href="#">Clothes and Uniforms</a></li>
+                  <li><a href="#">Phones & Accessories</a></li>
+                  <li><a href="#">Jewelry & Watches</a></li>
+                  <li><a href="#">Bags & Shoes</a></li>
+                  <li><a href="#">Home Appliance</a></li>
+                  <li><a href="#">Beauty & Health, Hair</a></li>
+                </ul>
+              </li>
+              <li class="has-children">
+                <a href="#">Real State</a>
+                <ul class="dropdown">
+                  <li class="has-children">
+                    <a href="#">Apartments</a>
+                    <ul class="dropdown">
+                      <li><a href="#">For Rent</a></li>
+                      <li><a href="#">For Sale</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-children">
+                    <a href="#">Houses</a>
+                    <ul class="dropdown">
+                      <li><a href="#">For Rent</a></li>
+                      <li><a href="#">For Sale</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-children">
+                <a href="#">Services</a>
+                <ul class="dropdown">
+                  <li><a href="#">Games</a></li>
+                  <li><a href="#">Courses</a></li>
+                  <li><a href="#">Extra Shifts</a></li>
+                  <li><a href="#">Translations</a></li>
+                  <li><a href="#">Events</a></li>
+                </ul>
+              </li>
+              <li class="has-children">
+                <a href="{% url 'contact.html' %}">Contact</a>
+                <ul class="dropdown">
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="{% url 'about.html'%}">About us</a></li>
+                  <li><a href="#">Contact us</a></li>
+                  <li><a href="#">Support</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="icons">
+          <!-- search icon -->
+          <!-- if is okey -->
+          {% if user.is_authenticated %}
+          <a href="#" class="icons-btn d-inline-block js-search-open"
+            ><span class="icon-search"></span
+          ></a>
+
+          <!-- favorit icon -->
+          <a href="#" class="icons-btn d-inline-block"
+            ><span class="icon-heart-o"></span
+          ></a>
+          <!-- cart items -->
+          <a href="cart.html" class="icons-btn d-inline-block bag">
+            <span class="icon-shopping-bag"></span>
+            <span class="number">2</span>
+          </a>
+        </div>
+        <!-- text for retrive name account of user  -->
+       
+        <div>
+            <a>{% user_display user %}</a>
+        </div>
+        <!-- avataar -->
+        
+        <div>
+            
+          <div class="main-nav d-none d-lg-block">
+               
+            <nav
+              class="site-navigation text-right text-md-center"
+              role="navigation"
+            >
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+               
+                <ul class="has-children active">
+                    
+                    <!-- allauth retrive avatar picture profile -->
+                    <img
+                      src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
+                      width="40"
+                      height="40"
+                      class="rounded-circle"
+                    />
+                    <ul class="dropdown">
+                      <li>
+                        <a href="{% url 'account_email' %}">Change E-mail</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'account_logout' %}">Sign Out</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </ul>
+            </nav>
+          </div>
+          
+
+          {%else%}
+
+          <!-- search icon -->
+          <a href="#" class="icons-btn d-inline-block js-search-open"
+            ><span class="icon-search"></span
+          ></a>
+          <!-- if is okey -->
+
+          <!-- favorit icon -->
+          <a href="#" class="icons-btn d-inline-block"
+            ><span class="icon-heart-o"></span
+          ></a>
+          <!-- cart items -->
+          <a href="cart.html" class="icons-btn d-inline-block bag">
+            <span class="icon-shopping-bag"></span>
+            <span class="number">2</span>
+          </a>
+
+          <a href="{% url 'account_login' %}">Sign In</a> /
+          <a href="{% url 'account_signup' %}">Up</a>
+        </div>
+        {%endif%}
+        <!-- Links -->
+      </div>
+    </div>
+  </div>
+</div>

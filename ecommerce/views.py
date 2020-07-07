@@ -20,7 +20,7 @@ import string
 
 
 def shop_page(request):
-    return render(request, 'index_shop.html')
+    return render(request, 'ecommerce/index_shop.html')
 
 
 def create_ref_code():
@@ -31,7 +31,7 @@ def products(request):
     context = {
         'items': Item.objects.all()
     }
-    return render(request, "product.html", context)
+    return render(request, "ecommerce/product.html", context)
 
 
 def is_valid_form(values):
@@ -72,7 +72,7 @@ class CheckoutView(View):
                 context.update(
                     {'default_billing_address': billing_address_qs[0]})
 
-            return render(self.request, "checkout.html", context)
+            return render(self.request, "ecommerce/checkout.html", context)
         except ObjectDoesNotExist:
             messages.info(self.request, "You do not have an active order")
             return redirect("core:checkout")
@@ -371,7 +371,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
 
 class ItemDetailView(DetailView):
     model = Item
-    template_name = "product.html"
+    template_name = "ecommerce/product.html"
 
 
 @login_required

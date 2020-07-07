@@ -102,7 +102,7 @@ ROOT_URLCONF = 'vivarodealer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['vivarodealer/templates', os.path.join(BASE_DIR, 'templates', 'allauth')],
+        'DIRS': ['templates', os.path.join(BASE_DIR, 'templates', 'allauth')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,7 +111,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            
+
         },
     },
 
