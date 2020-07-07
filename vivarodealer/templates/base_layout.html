@@ -23,13 +23,20 @@
     <link rel="stylesheet" href="{% static 'css/aos.css'%}" />
     <link rel="stylesheet" href="{% static 'css/style.css'%}" />
   </head>
+  <!-- navbar -->
   {%include 'navbar.html' %}
+  <!-- navbar -->
+
+  <!-- ye fekri be hale in body bokon -->
   <body>
 
     <!--Block content-->
     {%block content%} {%endblock%}
+ <!--End Block content-->
 
-    <!--End Block content-->
+    <!-- footer -->
+  {%include 'footer.html' %}
+   
 
     <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
     <script src="{% static 'js/jquery-ui.js'%}"></script>
