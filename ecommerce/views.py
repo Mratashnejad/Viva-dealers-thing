@@ -34,7 +34,7 @@ def products(request):
     context = {
         'items': Item.objects.all()
     }
-    return render(request, "ecommerce/product.html", context)
+    return render(request, "ecommerce/shop-single.html", context)
 
 
 def is_valid_form(values):
@@ -374,7 +374,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
 
 class ItemDetailView(DetailView):
     model = Item
-    template_name = "ecommerce/product.html"
+    template_name = "ecommerce/shop-single.html"
 
 
 @login_required

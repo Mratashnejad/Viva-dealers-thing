@@ -54,8 +54,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                   <a class="dropdown-item" href="#">Men</a>
-                  <a class="dropdown-item" href="#">Women</a>
-                  <a class="dropdown-item" href="#">Children</a>
+                  
                 </div>
               </div>
               <div class="btn-group">
@@ -82,12 +81,10 @@
             </div>
           </div>
         </div>
-
-        <!-- load items  -->
-
+        <!-- load items  -->  
         <div class="row mb-5">
+          {%for item in items %}
           <div class="col-lg-6 col-md-6 item-entry mb-4">
-            {%for item in items %}
             <a href="#" class="product-item md-height bg-gray d-block">
               <img
                 src="{{ item.image.url }}"
@@ -95,9 +92,8 @@
                 class="img-fluid"
               />
             </a>
-            <h2 class="item-title"><a href="#">{{item.title}}</a></h2>
+            <h2 class="item-title"><a href="{{ item.get_absolute_url }}">{{item.title}}</a></h2>
             <strong class="item-price"><del>{{item.price}}</del> {{item.discount_price}}</strong>
-
             <div class="star-rating">
               <span class="icon-star2 text-warning"></span>
               <span class="icon-star2 text-warning"></span>
@@ -105,8 +101,8 @@
               <span class="icon-star2 text-warning"></span>
               <span class="icon-star2 text-warning"></span>
             </div>
-            {%endfor%}
           </div>
+          {%endfor%}
         </div>
       </div>
 
@@ -116,27 +112,19 @@
           <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">
               Categories
-            </h3>
+            </h3>{%for item in items%}
             <ul class="list-unstyled mb-0">
               <li class="mb-1">
-                <a href="#" class="d-flex"
-                  ><span>Men</span>
-                  <span class="text-black ml-auto">(2,220)</span></a
-                >
-              </li>
-              <li class="mb-1">
-                <a href="#" class="d-flex"
-                  ><span>Women</span>
-                  <span class="text-black ml-auto">(2,550)</span></a
-                >
-              </li>
-              <li class="mb-1">
-                <a href="#" class="d-flex"
-                  ><span>Children</span>
-                  <span class="text-black ml-auto">(2,124)</span></a
+                <a href="" class="d-flex"
+                  >
+                  <span>{{item.get_category_display}}</span>
+                  <span class="text-black ml-auto">(2,220)</span>
+                  
+                  </a
                 >
               </li>
             </ul>
+            {%endfor%}
           </div>
 
           <div class="border p-4 rounded mb-4">

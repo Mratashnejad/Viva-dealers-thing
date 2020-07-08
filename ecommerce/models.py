@@ -63,17 +63,17 @@ class Item(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("Ecommerce:product", kwargs={
+        return reverse("ecommerce:product", kwargs={
             'slug': self.slug
         })
 
     def get_add_to_cart_url(self):
-        return reverse("Ecommerce:add-to-cart", kwargs={
+        return reverse("ecommerce:add-to-cart", kwargs={
             'slug': self.slug
         })
 
     def get_remove_from_cart_url(self):
-        return reverse("Ecommerce:remove-from-cart", kwargs={
+        return reverse("ecommerce:remove-from-cart", kwargs={
             'slug': self.slug
         })
 
