@@ -11,29 +11,29 @@ def Courses_page(request):
 
 @login_required(login_url="/accounts/login/")
 def Blackjack_page(request):
-    return render(request, 'Blackjack.html')
+    return render(request, 'Courses/blackjack.html')
 
 
 @login_required(login_url="/accounts/login/")
 def Poker_page(request):
-    return render(request, 'Poker.html')
+    return render(request, 'Courses/Poker.html')
 
 
 @login_required(login_url="/accounts/login/")
 def Baccarat_page(request):
-    return render(request, 'Baccarat.html')
+    return render(request, 'Courses/Baccarat.html')
 
 
 @login_required(login_url="/accounts/login/")
 def Keno_page(reqeust):
-    return render(reqeust, 'Keno.html')
+    return render(reqeust, 'Courses/Keno.html')
 
 
 @login_required(login_url="/accounts/login/")
 def Roulatte_page(reuqest):
-    return render(reuqest, 'Roulatte.html')
+    return render(reuqest, 'Courses/Roulatte.html')
 
 
 @login_required(login_url="/accounts/login/")
 def Dragontiger_page(reuqest):
-    return render(reuqest, 'Dragontiger.html')
+    return render(reuqest, 'Courses/Dragontiger.html')

@@ -61,8 +61,29 @@
               <li class="has-children">
                 <a href="#">Services</a>
                 <ul class="dropdown">
-                  <li><a href="#">Games</a></li>
-                  <li><a href="#">Courses</a></li>
+                  <li><a href="{% url 'Games:blackjackgame'%}">Games</a></li>
+                  <li class="has-children">
+                    <a href="{% url 'courses' %}">Courses</a>
+                    <ul class="dropdown">
+                      <li>
+                        <a href="{% url 'Courses:Blackjack' %}">Black Jack</a>
+                      </li>
+                      <li><a href="{% url 'Courses:Poker' %}">Poker</a></li>
+                      <li>
+                        <a href="{% url 'Courses:Roulatte' %}">Roulatte</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'Courses:Baccarat' %}">Baccarat</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'Courses:Dragontiger' %}"
+                          >Dragon Tiger</a
+                        >
+                      </li>
+                      <li><a href="{% url 'Courses:Keno' %}">Keno</a></li>
+                      <li><a href="#">Bonus</a></li>
+                    </ul>
+                  </li>
                   <li><a href="#">Extra Shifts</a></li>
                   <li><a href="#">Translations</a></li>
                   <li><a href="#">Events</a></li>
@@ -99,45 +120,39 @@
           </a>
         </div>
         <!-- text for retrive name account of user  -->
-       
+
         <div>
-            <a>{% user_display user %}</a>
+          <a>{% user_display user %}</a>
         </div>
         <!-- avataar -->
-        
+
         <div>
-            
           <div class="main-nav d-none d-lg-block">
-               
             <nav
               class="site-navigation text-right text-md-center"
               role="navigation"
             >
               <ul class="site-menu js-clone-nav d-none d-lg-block">
-               
                 <ul class="has-children active">
-                    
-                    <!-- allauth retrive avatar picture profile -->
-                    <img
-                      src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
-                      width="40"
-                      height="40"
-                      class="rounded-circle"
-                    />
-                    <ul class="dropdown">
-                      <li>
-                        <a href="{% url 'account_email' %}">Change E-mail</a>
-                      </li>
-                      <li>
-                        <a href="{% url 'account_logout' %}">Sign Out</a>
-                      </li>
-                    </ul>
-                  </li>
+                  <!-- allauth retrive avatar picture profile -->
+                  <img
+                    src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
+                    width="40"
+                    height="40"
+                    class="rounded-circle"
+                  />
+                  <ul class="dropdown">
+                    <li>
+                      <a href="{% url 'account_email' %}">Change E-mail</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'account_logout' %}">Sign Out</a>
+                    </li>
+                  </ul>
                 </ul>
               </ul>
             </nav>
           </div>
-          
 
           {%else%}
 
