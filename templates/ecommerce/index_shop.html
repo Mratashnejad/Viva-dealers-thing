@@ -85,7 +85,7 @@
         <div class="row mb-5">
           {%for item in items %}
           <div class="col-lg-6 col-md-6 item-entry mb-4">
-            <a href="#" class="product-item md-height bg-gray d-block">
+            <a href="{{ item.get_absolute_url }}" class="product-item md-height bg-gray d-block">
               <img
                 src="{{ item.image.url }}"
                 alt="Image"
