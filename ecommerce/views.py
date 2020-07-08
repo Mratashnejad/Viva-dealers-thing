@@ -20,7 +20,10 @@ import string
 
 
 def shop_page(request):
-    return render(request, 'ecommerce/index_shop.html')
+    context = {
+        'items': Item.objects.all()
+    }
+    return render(request, 'ecommerce/index_shop.html', context)
 
 
 def create_ref_code():
