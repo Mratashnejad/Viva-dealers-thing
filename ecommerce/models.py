@@ -9,17 +9,12 @@ from django_countries.fields import CountryField
 
 
 CATEGORY_CHOICES = (
-    ('Cl', 'Clothes'),
-    ('Ui', 'Uniforms'),
-    ('Ac', 'Accessories'),
-    ('Je', 'Jewelry'),
-    ('Wa', 'Watches'),
-    ('Ba', 'Bags'),
-    ('Sh', 'Shoes'),
+    ('Cl', 'Clothes and Uniforms'),
+    ('Ph', 'Phones & Accessories'),
+    ('Je', 'Jewelry & Watches'),
+    ('Ba', 'Bags & Shoes'),
     ('HA', 'Home Appliance'),
-    ('Be', 'Beauty'),
-    ('He', 'Health'),
-    ('Ha', 'Hair'),
+    ('Be', 'Beauty & Health, Hair'),
     ('Ap', 'Apartments'),
     ('Ho', 'Houses'),
 )
