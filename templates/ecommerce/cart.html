@@ -124,7 +124,7 @@
                   {% else %} ${{ order_item.get_total_item_price }} {% endif %}
                 </td>
                 <td>
-                  <a href="#" class="btn btn-primary height-auto btn-sm">X</a>
+                  <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-primary height-auto btn-sm">X</a>
                 </td>
               </tr>
               {%endfor%}
