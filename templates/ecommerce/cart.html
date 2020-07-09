@@ -19,6 +19,7 @@
           <table class="table table-bordered">
             <thead>
               <tr>
+                <th class="product-count">#</th>
                 <th class="product-thumbnail">Image</th>
                 <th class="product-name">Product</th>
                 <th class="product-price">Price</th>
@@ -28,44 +29,71 @@
               </tr>
             </thead>
             <tbody>
-              {%for order_item in items.items.all %}
+              {% for order_item in object.items.all %}
               <tr>
+                <td class="product-count">{{forloop.counter}}</td>
                 <td class="product-thumbnail">
-                  <img src="{{item.image.url}}" alt="Image" class="img-fluid" />
+                  <img
+                    src="{{ order_item.item.image.url }}"
+                    alt="Image"
+                    class="img-fluid"
+                  />
                 </td>
                 <td class="product-name">
                   <h2 class="h5 text-black">{{ order_item.item.title }}</h2>
                 </td>
                 <td>{{ order_item.item.price }}</td>
                 <td>
+                  <a
+                    href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
+                    ><i class="fas fa-minus mr-2"></i
+                  ></a>
+                  {{ order_item.quantity }}
+                  <a
+                    href="{% url 'ecommerce:add-to-cart' order_item.item.slug %}"
+                    ><i class="fas fa-plus ml-2"></i
+                  ></a>
+
                   <div class="input-group mb-3" style="max-width: 120px;">
                     <div class="input-group-prepend">
                       <button
                         class="btn btn-outline-primary js-btn-minus"
                         type="button"
                       >
-                        &minus;
+                        <a
+                          href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
+                          >&minus;</a
+                        >
                       </button>
                     </div>
                     <input
                       type="text"
                       class="form-control text-center"
-                      value="1"
+                      value="{{ order_item.quantity }}"
                       placeholder=""
                       aria-label="Example text with button addon"
                       aria-describedby="button-addon1"
                     />
+
                     <div class="input-group-append">
                       <button
                         class="btn btn-outline-primary js-btn-plus"
                         type="button"
                       >
-                        &plus;
+                        <a
+                          href="{% url 'ecommerce:add-to-cart' order_item.item.slug %}"
+                          >&plus;</a
+                        >
                       </button>
                     </div>
                   </div>
                 </td>
-                <td>$49.00</td>
+                <td>{% if order_item.item.discount_price %}
+                  ${{ order_item.get_total_discount_item_price }}
+                  <span class="badge badge-primary">Saving ${{ order_item.get_amount_saved }}</span>
+              {% else %}
+                  ${{ order_item.get_total_item_price }}
+              {% endif %}</td>
                 <td>
                   <a href="#" class="btn btn-primary height-auto btn-sm">X</a>
                 </td>

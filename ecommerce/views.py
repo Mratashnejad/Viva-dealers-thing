@@ -15,7 +15,7 @@ from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, Us
 
 import random
 import string
-# import stripe
+import stripe
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
 

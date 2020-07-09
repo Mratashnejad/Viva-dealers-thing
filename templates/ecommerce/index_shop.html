@@ -93,7 +93,11 @@
               />
             </a>
             <h2 class="item-title"><a href="{{ item.get_absolute_url }}">{{item.title}}</a></h2>
-            <strong class="item-price"><del>{{item.price}}</del> {{item.discount_price}}</strong>
+            {%if item.discount_price %}
+            <strong class="item-price"><del>${{item.price}}</del>${{item.discount_price}}</strong>
+            {%else%}
+            <strong class="item-price">${{item.price}}</strong>
+            {%endif%}
             <div class="star-rating">
               <span class="icon-star2 text-warning"></span>
               <span class="icon-star2 text-warning"></span>
@@ -118,7 +122,7 @@
                 <a href="" class="d-flex"
                   >
                   <span>{{item.get_category_display}}</span>
-                  <span class="text-black ml-auto">(2,120)</span>
+                  <span class="text-black ml-auto">{{item.category.count}}</span>
                   
                   </a
                 >
