@@ -29,7 +29,14 @@
               </tr>
             </thead>
             <tbody>
-              {% for order_item in object.items.all %}
+              {% empty %}
+              <tr>
+                <td colspan="5">Your cart is empty</td>
+              </tr>
+              <tr>
+                {% for order_item in object.items.all %}
+              </tr>
+
               <tr>
                 <td class="product-count">{{forloop.counter}}</td>
                 <td class="product-thumbnail">
@@ -88,12 +95,14 @@
                     </div>
                   </div>
                 </td>
-                <td>{% if order_item.item.discount_price %}
-                  ${{ order_item.get_total_discount_item_price }}
-                  <span class="badge badge-primary">Saving ${{ order_item.get_amount_saved }}</span>
-              {% else %}
-                  ${{ order_item.get_total_item_price }}
-              {% endif %}</td>
+                <td>
+                  {% if order_item.item.discount_price %} ${{
+                  order_item.get_total_discount_item_price }}
+                  <span class="badge badge-primary"
+                    >Saving ${{ order_item.get_amount_saved }}</span
+                  >
+                  {% else %} ${{ order_item.get_total_item_price }} {% endif %}
+                </td>
                 <td>
                   <a href="#" class="btn btn-primary height-auto btn-sm">X</a>
                 </td>
