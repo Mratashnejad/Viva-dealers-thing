@@ -55,7 +55,7 @@
                     href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
                     ><i class="fas fa-minus mr-2"></i
                   ></a>
-                  {{ order_item.quantity }}
+                  <!-- {{ order_item.quantity }} quantity have problem -->
                   <a
                     href="{% url 'ecommerce:add-to-cart' order_item.item.slug %}"
                     ><i class="fas fa-plus ml-2"></i
