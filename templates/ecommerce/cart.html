@@ -81,7 +81,27 @@
                       aria-label="Example text with button addon"
                       aria-describedby="button-addon1"
                     />
+                    <p>{{ object.description }}</p>
 
+                    {% comment %}
+                    <form class="d-flex justify-content-left">
+                      <!-- Default input -->
+                      <input
+                        type="number"
+                        value="1"
+                        aria-label="Search"
+                        class="form-control"
+                        style="width: 100px;"
+                      />
+                      <button
+                        class="btn btn-primary btn-md my-0 p"
+                        type="submit"
+                      >
+                        Add to cart
+                        <i class="fas fa-shopping-cart ml-1"></i>
+                      </button>
+                    </form>
+                    {% endcomment %}
                     <div class="input-group-append">
                       <button
                         class="btn btn-outline-primary js-btn-plus"
