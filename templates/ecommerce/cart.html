@@ -52,18 +52,21 @@
                   >
                   {% else %} ${{ order_item.get_total_item_price }} {% endif %}
                 </td>
+
+                
+
                 <td>
-                  <a href=""><i class="fas fa-minus mr-2"></i></a>
+                  <a
+                    href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
+                    ><i class="fas fa-minus mr-2"></i
+                  ></a>
                   <div class="input-group mb-3" style="max-width: 120px;">
                     <div class="input-group-prepend">
                       <button
                         class="btn btn-outline-primary js-btn-minus"
                         type="button"
                       >
-                        <a
-                          href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
-                          >&minus;</a
-                        >
+                        <a href="">&minus;</a>
                       </button>
                     </div>
 
@@ -89,11 +92,11 @@
                     </div>
                   </div>
                 </td>
-
+                {% if object.get_total %}
                 <td>
                   {{ object.get_total }}
                 </td>
-
+                {%endif%}
                 <td>
                   <a
                     href="{{ object.get_remove_from_cart_url }}"
