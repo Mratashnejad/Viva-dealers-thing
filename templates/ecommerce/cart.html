@@ -44,12 +44,16 @@
                 <td class="product-name">
                   <h2 class="h5 text-black">{{ order_item.item.title }}</h2>
                 </td>
-                <td>{{ order_item.item.price }}</td>
                 <td>
-                  <a
-                    href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
-                    ><i class="fas fa-minus mr-2"></i
-                  ></a>
+                  {% if order_item.item.discount_price %} $
+                  {{order_item.get_total_discount_item_price }}
+                  <span class="badge badge-primary"
+                    >Saving ${{ order_item.get_amount_saved }}</span
+                  >
+                  {% else %} ${{ order_item.get_total_item_price }} {% endif %}
+                </td>
+                <td>
+                  <a href=""><i class="fas fa-minus mr-2"></i></a>
                   <div class="input-group mb-3" style="max-width: 120px;">
                     <div class="input-group-prepend">
                       <button
@@ -62,10 +66,11 @@
                         >
                       </button>
                     </div>
+
                     <input
                       type="text"
                       class="form-control text-center"
-                      value="1"
+                      value="{{ order_item.quantity }}"
                       placeholder=""
                       aria-label="Example text with button addon"
                       aria-describedby="button-addon1"
@@ -86,11 +91,7 @@
                 </td>
 
                 <td>
-                  {% if order_item.item.discount_price %}$
-                  <span class="badge badge-primary"
-                    >Saving ${{order_item.get_total_discount_item_price }}</span
-                  >
-                  {% else %} ${{ order_item.get_total_item_price }} {% endif %}
+                  {{ object.get_total }}
                 </td>
 
                 <td>
