@@ -87,7 +87,7 @@
                       >
                         <a
                           href="{% url 'ecommerce:add-to-cart' order_item.item.slug %}"
-                          >2</a
+                          >+</a
                         >
                       </button>
                     </div>
@@ -126,7 +126,7 @@
           </div>
           <div class="col-md-6">
             <button class="btn btn-outline-primary btn-sm btn-block">
-              Continue Shopping
+              <a href="{%url 'ecommerce:checkout'%}"> checkout</a>
             </button>
           </div>
         </div>
