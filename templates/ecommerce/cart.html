@@ -29,13 +29,8 @@
               </tr>
             </thead>
             <tbody>
-              {% empty %}
-              <tr>
-                <td colspan="5">Your cart is empty</td>
-              </tr>
-              <tr>
-                {% for order_item in object.items.all %}
-              </tr>
+              {% for order_item in object.items.all %}
+              <tr></tr>
 
               <tr>
                 <td class="product-count">{{forloop.counter}}</td>
@@ -55,12 +50,6 @@
                     href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
                     ><i class="fas fa-minus mr-2"></i
                   ></a>
-                  <!-- {{ order_item.quantity }} quantity have problem -->
-                  <a
-                    href="{% url 'ecommerce:add-to-cart' order_item.item.slug %}"
-                    ><i class="fas fa-plus ml-2"></i
-                  ></a>
-
                   <div class="input-group mb-3" style="max-width: 120px;">
                     <div class="input-group-prepend">
                       <button
@@ -76,32 +65,12 @@
                     <input
                       type="text"
                       class="form-control text-center"
-                      value="{{ order_item.quantity }}"
+                      value="1"
                       placeholder=""
                       aria-label="Example text with button addon"
                       aria-describedby="button-addon1"
                     />
-                    <p>{{ object.description }}</p>
 
-                    {% comment %}
-                    <form class="d-flex justify-content-left">
-                      <!-- Default input -->
-                      <input
-                        type="number"
-                        value="1"
-                        aria-label="Search"
-                        class="form-control"
-                        style="width: 100px;"
-                      />
-                      <button
-                        class="btn btn-primary btn-md my-0 p"
-                        type="submit"
-                      >
-                        Add to cart
-                        <i class="fas fa-shopping-cart ml-1"></i>
-                      </button>
-                    </form>
-                    {% endcomment %}
                     <div class="input-group-append">
                       <button
                         class="btn btn-outline-primary js-btn-plus"
@@ -115,16 +84,21 @@
                     </div>
                   </div>
                 </td>
+
                 <td>
-                  {% if order_item.item.discount_price %} ${{
-                  order_item.get_total_discount_item_price }}
+                  {% if order_item.item.discount_price %}$
                   <span class="badge badge-primary"
-                    >Saving ${{ order_item.get_amount_saved }}</span
+                    >Saving ${{order_item.get_total_discount_item_price }}</span
                   >
                   {% else %} ${{ order_item.get_total_item_price }} {% endif %}
                 </td>
+
                 <td>
-                  <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-primary height-auto btn-sm">X</a>
+                  <a
+                    href="{{ object.get_remove_from_cart_url }}"
+                    class="btn btn-primary height-auto btn-sm"
+                    >X</a
+                  >
                 </td>
               </tr>
               {%endfor%}
