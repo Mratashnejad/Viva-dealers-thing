@@ -120,9 +120,9 @@
             class="icons-btn d-inline-block bag"
           >
             <span class="icon-shopping-bag"></span>
-            {%if order_item.quantity %}
-            <span class="number">{{ order_item.quantity }}</span>
-            {%endif%}
+            {% for order_item in object.items.all %}
+            <span class="number">{{forloop.counter}}</span>
+            {%endfor%}
           </a>
         </div>
         <!-- text for retrive name account of user  -->
