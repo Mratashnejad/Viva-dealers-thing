@@ -114,9 +114,14 @@
             ><span class="icon-heart-o"></span
           ></a>
           <!-- cart items -->
-          <a href="cart.html" class="icons-btn d-inline-block bag">
+          {%if {{ order_item.quantity }}%}
+          <a
+            href="{%url 'ecommerce:cart'%}"
+            class="icons-btn d-inline-block bag"
+          >
             <span class="icon-shopping-bag"></span>
-            <span class="number">2</span>
+            <span class="number">{{ order_item.quantity }}</span>
+            {%endif%}
           </a>
         </div>
         <!-- text for retrive name account of user  -->
@@ -135,6 +140,7 @@
               <ul class="site-menu js-clone-nav d-none d-lg-block">
                 <ul class="has-children active">
                   <!-- allauth retrive avatar picture profile -->
+
                   <img
                     src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
                     width="40"
@@ -167,9 +173,12 @@
             ><span class="icon-heart-o"></span
           ></a>
           <!-- cart items -->
-          <a href="cart.html" class="icons-btn d-inline-block bag">
+          <a
+            href="{%url 'ecommerce:cart'%}"
+            class="icons-btn d-inline-block bag"
+          >
             <span class="icon-shopping-bag"></span>
-            <span class="number">2</span>
+            <span class="number"></span>
           </a>
 
           <a href="{% url 'account_login' %}">Sign In</a> /
