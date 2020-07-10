@@ -33,7 +33,9 @@
               <tr></tr>
 
               <tr>
+                <!-- ROW -->
                 <td class="product-count">{{forloop.counter}}</td>
+                <!-- thumbnail -->
                 <td class="product-thumbnail">
                   <img
                     src="{{ order_item.item.image.url }}"
@@ -41,35 +43,33 @@
                     class="img-fluid"
                   />
                 </td>
+                <!-- endthumbnail -->
+
+                <!-- product name -->
                 <td class="product-name">
                   <h2 class="h5 text-black">{{ order_item.item.title }}</h2>
                 </td>
+                <!-- end product name -->
+                <!-- product price -->
                 <td>
-                  {% if order_item.item.discount_price %} $
-                  {{order_item.get_total_discount_item_price }}
-                  <span class="badge badge-primary"
-                    >Saving ${{ order_item.get_amount_saved }}</span
-                  >
-                  {% else %} ${{ order_item.get_total_item_price }} {% endif %}
+                  {{order_item.item.price}}
                 </td>
-
-                
-
+                <!-- end product price -->
+                <!-- quantity -->
                 <td>
-                  <a
-                    href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
-                    ><i class="fas fa-minus mr-2"></i
-                  ></a>
+                  <a href=""><i class="fas fa-minus mr-2"></i></a>
                   <div class="input-group mb-3" style="max-width: 120px;">
                     <div class="input-group-prepend">
+                      <!-- minus button -->
                       <button
                         class="btn btn-outline-primary js-btn-minus"
                         type="button"
                       >
                         <a href="">&minus;</a>
                       </button>
+                      <!-- minus button -->
                     </div>
-
+                    <!-- quantity value -->
                     <input
                       type="text"
                       class="form-control text-center"
@@ -78,6 +78,7 @@
                       aria-label="Example text with button addon"
                       aria-describedby="button-addon1"
                     />
+                    <!-- quantity value -->
 
                     <div class="input-group-append">
                       <button
@@ -97,15 +98,20 @@
                   {{ object.get_total }}
                 </td>
                 {%endif%}
+
+
+                <!-- remove product  -->
                 <td>
                   <a
-                    href="{{ object.get_remove_from_cart_url }}"
+                    href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
                     class="btn btn-primary height-auto btn-sm"
                     >X</a
                   >
                 </td>
+                <!-- end remove product  -->
               </tr>
               {%endfor%}
+              
             </tbody>
           </table>
         </div>
