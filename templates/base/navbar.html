@@ -114,12 +114,13 @@
             ><span class="icon-heart-o"></span
           ></a>
           <!-- cart items -->
-          {%if {{ order_item.quantity }}%}
+
           <a
-            href="{%url 'ecommerce:cart'%}"
+            href="{%url 'ecommerce:order-summary'%}"
             class="icons-btn d-inline-block bag"
           >
             <span class="icon-shopping-bag"></span>
+            {%if order_item.quantity %}
             <span class="number">{{ order_item.quantity }}</span>
             {%endif%}
           </a>

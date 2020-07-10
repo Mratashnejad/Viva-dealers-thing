@@ -214,7 +214,6 @@ class CheckoutView(View):
             messages.warning(self.request, "You do not have an active order")
             return redirect("ecommerce:order-summary")
 
-
 class PaymentView(View):
     def get(self, *args, **kwargs):
         order = Order.objects.get(user=self.request.user, ordered=False)
