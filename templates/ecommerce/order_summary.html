@@ -60,11 +60,11 @@
                   <div class="input-group mb-3" style="max-width: 120px;">
                     <div class="input-group-append">
                       <button
-                        class="btn btn-outline-primary js-btn-plus"
+                        class="btn btn-outline-primary js-btn-minus"
                         type="button"
                       >
                         <a
-                          href="{% url 'ecommerce:remove-from-cart' order_item.item.slug %}"
+                          href="{% url 'ecommerce:remove-single-item-from-cart' order_item.item.slug %}"
                           >-</a
                         >
                       </button>
