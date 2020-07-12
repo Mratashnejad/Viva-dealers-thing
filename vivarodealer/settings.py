@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'snowpenguin.django.recaptcha3',
     'ecommerce',
     'crispy_forms',
     'Courses',
@@ -188,3 +189,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 LOGIN_REDIRECT_URL = '/'
+
+
+# Recaptcha V3 google
+RECAPTCHA_SITE_KEY = "6LdhXrAZAAAAAHwztufA1vVIoJ73XeVLSHyQsBXU"
+RECAPTCHA_SECRET_KEY = "6LdhXrAZAAAAALdmLxY2tQ4NfUxIbxx6As9lGBFD"
