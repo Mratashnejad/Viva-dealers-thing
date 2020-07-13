@@ -1,9 +1,10 @@
 {%extends 'base/base.html'%}{%block content%} {%load static%}
 
 <title>
-  {%block title%}VivaroDealer &mdash; Online Shopping | Courses | Exams
+  {%block title%}VivaroDealer &mdash; Online Shopping | Courses | Exam
   {%endblock%}
 </title>
+
 <div class="site-blocks-cover" data-aos="fade">
   <div class="container">
     <div class="row">
@@ -72,11 +73,13 @@
   <div class="container">
     <div class="row">
       <div class="title-section mb-5 col-12">
-        <h2 class="text-uppercase">Popular Products</h2>
+        <h2 class="text-uppercase">Products</h2>
       </div>
     </div>
 
-    <div class="row">
+    <!-- load items  -->
+
+    <div class="row mb-5">
       {%for item in items %}
       <div class="col-lg-6 col-md-6 item-entry mb-4">
         <a
@@ -89,11 +92,11 @@
           <a href="{{ item.get_absolute_url }}">{{item.title}}</a>
         </h2>
         {%if item.discount_price %}
-        <strong class="item-price"
-          ><del>${{item.price}}</del>${{item.discount_price}}</strong
+        <h3 class="item-price"
+          ><del>${{item.price}}</del>${{item.discount_price}}</h3
         >
-        {%else%}
-        <strong class="item-price">${{item.price}}</strong>
+        {%else%}  
+        <h3 class="item-price">${{item.price}}</h3>
         {%endif%}
         <div class="star-rating">
           <span class="icon-star2 text-warning"></span>
@@ -105,25 +108,27 @@
       </div>
       {%endfor%}
     </div>
-    <!-- Items show in Index page -->
+  </div>
 
-    <div class="site-blocks-cover inner-page py-5" data-aos="fade">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 ml-auto order-md-2 align-self-start">
-            <div class="site-block-cover-content">
-              <h2 class="sub-title">#New Summer Collection 2019</h2>
-              <h1>New Shoes</h1>
-              <p><a href="#" class="btn btn-black rounded-0">Shop Now</a></p>
-            </div>
+  <!-- close load items -->
+  <!-- Items show in Index page -->
+
+  <div class="site-blocks-cover inner-page py-5" data-aos="fade">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ml-auto order-md-2 align-self-start">
+          <div class="site-block-cover-content">
+            <h2 class="sub-title">#New Summer Collection 2019</h2>
+            <h1>New Shoes</h1>
+            <p><a href="#" class="btn btn-black rounded-0">Shop Now</a></p>
           </div>
-          <div class="col-md-6 order-1 align-self-end">
-            <img
-              src="{% static 'images/model_6.png'%}"
-              alt="Image"
-              class="img-fluid"
-            />
-          </div>
+        </div>
+        <div class="col-md-6 order-1 align-self-end">
+          <img
+            src="{% static 'images/model_6.png'%}"
+            alt="Image"
+            class="img-fluid"
+          />
         </div>
       </div>
     </div>

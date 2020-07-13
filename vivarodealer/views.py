@@ -1,9 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.conf import settings
+from ecommerce.models import Item,UserProfile
 
 def home_page(request):
-    return render(request, 'index.html')
+    context = {
+        'items': Item.objects.all()
+    }
+    return render(request, 'index.html' , context)
 
 
 def courses_page(request):
