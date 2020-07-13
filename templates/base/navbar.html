@@ -63,7 +63,7 @@
                 <ul class="dropdown">
                   <li><a href="{% url 'Games:blackjackgame'%}">Games</a></li>
                   <li class="has-children">
-                    <a href="{% url 'courses' %}">Courses</a>
+                    <a href="{% url 'Courses:Courses' %}">Courses</a>
                     <ul class="dropdown">
                       <li>
                         <a href="{% url 'Courses:Blackjack' %}">Black Jack</a>
@@ -94,7 +94,7 @@
                 <ul class="dropdown">
                   <li><a href="#">FAQ</a></li>
                   <li><a href="{% url 'about'%}">About us</a></li>
-                  <li><a href="#">Contact us</a></li>
+                  <li><a href="{% url 'contact'%}">Contact us</a></li>
                   <li><a href="#">Support</a></li>
                 </ul>
               </li>

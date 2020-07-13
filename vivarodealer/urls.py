@@ -10,17 +10,14 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', views.home_page, name='homepage'),
-    url(r'^courses/$', views.courses_page, name='courses'),
+    path('',views.home_page , name='homepage'),
+    path('courses/', include('Courses.urls'), name='Courses'),
+    path('games/', include('Games.urls'), name='Games'),
+    path('shop/', include('ecommerce.urls'), name='ecommerce'),
     url(r'^about/$', views.about_page, name='about'),
     url(r'^contact/$', views.contact_page, name='contact'),
     url(r'^blog/$', views.blog_page, name='blog'),
-    url(r'^courses/', include('Courses.urls')),
     path('accounts/', include('allauth.urls')),
-    url(r'^games/', include('Games.urls')),
-    url(r'^shop/', include('ecommerce.urls')),
-    # path('', include('ecommerce.urls', namespace='ecommerce')),
-
 ]
 
 handler404 = views.error404
