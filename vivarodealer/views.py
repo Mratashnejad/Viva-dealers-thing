@@ -4,10 +4,12 @@ from django.conf import settings
 from ecommerce.models import Item,UserProfile
 
 def home_page(request):
+    
     context = {
-        'items': Item.objects.all()
+        'items': Item.objects.all(),
     }
-    return render(request, 'index.html' , context)
+    return render(request, 'index.html' , context )
+
 
 
 def courses_page(request):
