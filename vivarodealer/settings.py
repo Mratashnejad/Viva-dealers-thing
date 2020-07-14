@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     # 'allauth.socialaccount.providers.facebook',
     'django_countries',
+    'captcha',
 ]
 
 # AUTH_USER_MODEL = 'Accounts.User'  # change the built-in user models to ours
@@ -195,3 +196,4 @@ RECAPTCHA_SITE_KEY = "6LdhXrAZAAAAAHwztufA1vVIoJ73XeVLSHyQsBXU"
 RECAPTCHA_SECRET_KEY = "6LdhXrAZAAAAALdmLxY2tQ4NfUxIbxx6As9lGBFD"
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']

@@ -9,6 +9,11 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core import exceptions, validators
 from django.urls import reverse
 from django.utils.translation import gettext, gettext_lazy as _, pgettext
+from captcha.fields import ReCaptchaField
+
+class FormWithCaptcha(forms.Form):
+    captcha = ReCaptchaField()
+
 
 from ..utils import (
     build_absolute_uri,
