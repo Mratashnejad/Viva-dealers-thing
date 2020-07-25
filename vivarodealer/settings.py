@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_countries',
     'captcha',
     'rest_framework',
+    'frontend',
 ]
 
 # AUTH_USER_MODEL = 'Accounts.User'  # change the built-in user models to ours
